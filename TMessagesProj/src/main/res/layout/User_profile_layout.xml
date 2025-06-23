@@ -1,0 +1,39 @@
+<!--File User_profile_layout-->
+<scrollView xmlns:android="http://schemas.android.com/apk/res.android"
+    android:id="@+id/profileScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorBackground"
+    android:fillviewport="true">
+
+    <LinearLayout
+        android:id="@+id/profileRoot"
+        android:orientation="vertical"
+        android:layout_width:="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <Imageview
+            android:id="@+profileAvatar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centreCrop"
+            android:src="@drawable/avatar_circle_bg"/>
+
+        <TextView
+            android:id="@+id/profileBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?/android:attr/textApperanceLarge"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="centre_horizontal"
+            android:text="User Name "/>
+
+        <TextView
+            android:id="@+id/profileBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="14dp"/
+            >
