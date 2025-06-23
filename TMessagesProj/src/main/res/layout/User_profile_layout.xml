@@ -35,5 +35,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="14dp"/
-            >
+            android:layout_marginTop="14dp"/>
+
+        <LinearLayout
+            android:id="@+actionButtons"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/messageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Message"/>
+
+            <Button
+                android:id="@+id/callButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Call"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/giftButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gift"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+        <!--more elements need to be added like media preview, shared links etc-->
+    </LinearLayout>
+</scrollView>
