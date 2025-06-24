@@ -43,6 +43,8 @@ import org.telegram.messenger.ImageLoader;
 import org.telegram.messenger.R;
 import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.TLRPC;
+import org.telegram.messenger.NotificationCenter;
+import org.telegram.ui.ActionBar.Theme;
 
 public class UserProfileActivity extends Activity {
 
@@ -64,6 +66,9 @@ public class UserProfileActivity extends Activity {
         loadCurrentUser();
         bindUserData();
         setupListeners();
+
+        Button toggleThemeButton = findViewById(R.id.toggleThemeButton);
+        toggleThemeButton.setOnClickListener(v -> toggleTheme())
     }
 
     private void initViews(){
@@ -118,6 +123,21 @@ public class UserProfileActivity extends Activity {
             startActivity(intent);
         });
     }
+
+    private void toggleTheme() {
+        boolean isCurrentThemeDay = Theme.isCurrentThemeDay();
+
+        Theme.applyTheme(Theme.getActiveTheme(), !isCurrentlyDay);
+        Theme.saveTheme(Theme.getActiveTheme(), !isCurrentlyDay);
+
+        NotificationCenter.getGlobalInstance().postNotificationName(
+            NotificationCenter.needSetDayNightTheme,
+            Theme.getActiveTheme(),
+            !isCurrentlyDay,
+            null,-1
+        );
+        recreate();
+    }
 }
 
 // UI binding 
@@ -126,3 +146,4 @@ public class UserProfileActivity extends Activity {
 // themes setup 
 // navigation 
 // user object from app core
+// added day night theme
