@@ -45,6 +45,7 @@ import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.TLRPC;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.ui.ActionBar.Theme;
+import org.telegram.ui.components.GiftsTabView; // yet to create this file 
 
 public class UserProfileActivity extends Activity {
 
@@ -68,7 +69,11 @@ public class UserProfileActivity extends Activity {
         setupListeners();
 
         Button toggleThemeButton = findViewById(R.id.toggleThemeButton);
-        toggleThemeButton.setOnClickListener(v -> toggleTheme())
+        toggleThemeButton.setOnClickListener(v -> toggleTheme());
+
+        FrameLayout giftTbContainer = findViewById(R.id.giftTbContainer);
+        GiftsTabView giftsTabView = new GiftsTabView(this);
+        giftTbContainer.addView(giftsTabView);
     }
 
     private void initViews(){
@@ -147,3 +152,4 @@ public class UserProfileActivity extends Activity {
 // navigation 
 // user object from app core
 // added day night theme
+// added the gifts tab view in this file only yet to create the other file directory TMessageproj/org/telegram/ui/components/GiftsTabView.java
