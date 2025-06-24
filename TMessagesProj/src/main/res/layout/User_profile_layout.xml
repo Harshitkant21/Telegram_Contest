@@ -64,7 +64,22 @@
                 android:layout_height="wrap_content"
                 android:text="Gift"
                 android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/toggleThemeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toggle theme"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"/>
         </LinearLayout>
         <!--more elements need to be added like media preview, shared links etc-->
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/giftTabContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp" />
 </scrollView>
