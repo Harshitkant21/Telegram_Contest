@@ -119,3 +119,10 @@ public class UserProfileActivity extends Activity {
         });
     }
 }
+
+// UI binding 
+// image loading 
+// structure 
+// themes setup 
+// navigation 
+// user object from app core
