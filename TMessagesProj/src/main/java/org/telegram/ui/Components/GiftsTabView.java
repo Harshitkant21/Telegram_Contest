@@ -86,7 +86,7 @@ public class GiftsTabView extends FrameLayout {
 
     private static class GiftViewHolder extends Recyclerview.ViewHolder {
         public GiftViewHolder(View itemView){
-            super(itemView);
+            super(itemView)
         }
     }
 }
