@@ -41,9 +41,15 @@ public class UserProfileActivity extends Activity {
         Button toggleThemeButton = findViewById(R.id.toggleThemeButton);
         toggleThemeButton.setOnClickListener(v -> toggleTheme());
 
-        FrameLayout giftTbContainer = findViewById(R.id.giftTbContainer);
+<<<<<<<<< Temporary merge branch 1
+        FrameLayout giftTabContainer = findViewById(R.id.giftTabContainer);
         GiftsTabView giftsTabView = new GiftsTabView(this);
-        giftTbContainer.addView(giftsTabView);
+        giftTabContainer.addView(giftsTabView);
+=========
+        // FrameLayout giftTbContainer = findViewById(R.id.giftTbContainer);
+        // GiftsTabView giftsTabView = new GiftsTabView(this);
+        // giftTabContainer.addView(giftsTabView);
+>>>>>>>>> Temporary merge branch 2
     }
 
     private void initViews(){
