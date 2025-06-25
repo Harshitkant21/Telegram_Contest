@@ -1,0 +1,15 @@
+User_profile_layout.xml 
+Line 22:
+  <!-- android:src="@drawable/avatar_circle_bg"/> --> not found
+Line 79-84:
+ File not found
+
+UserProfileActivity.java
+Line 17: commented because of file not found
+Line 33: commented because of function not found
+Line 44-46: commented because function not found
+Line 70: commented because currentUser has no "about" member found in user schema
+Line 74: commented because setImage function is not there
+Line 81: commented because "R.drawable.avatar_placeholder" not found instead a dummy rectangle is added
+Line 97-101: commented because GiftSendActivity is not there 
+Line 108: commented because saveTheme is not found
