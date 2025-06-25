@@ -41,9 +41,11 @@ public class UserProfileActivity extends Activity {
         Button toggleThemeButton = findViewById(R.id.toggleThemeButton);
         toggleThemeButton.setOnClickListener(v -> toggleTheme());
 
+
         // FrameLayout giftTbContainer = findViewById(R.id.giftTbContainer);
         // GiftsTabView giftsTabView = new GiftsTabView(this);
         // giftTabContainer.addView(giftsTabView);
+
     }
 
     private void initViews(){
