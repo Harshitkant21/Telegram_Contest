@@ -3,7 +3,7 @@
     android:id="@+id/profileScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorBackground"
+    android:background="?android:attr/colorBackground"
     android:fillviewport="true">
 
     <LinearLayout
@@ -14,18 +14,18 @@
         android:padding="16dp">
 
         <Imageview
-            android:id="@+profileAvatar"
+            android:id="@+id/profileAvatar"
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_gravity="center_horizontal"
-            android:scaleType="centreCrop"
-            android:src="@drawable/avatar_circle_bg"/>
+            android:scaleType="centreCrop"/>
+            <!-- android:src="@drawable/avatar_circle_bg"/> -->
 
         <TextView
-            android:id="@+id/profileBio"
+            android:id="@+id/profileName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?/android:attr/textApperanceLarge"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_marginTop="12dp"
             android:layout_gravity="centre_horizontal"
             android:text="User Name "/>
@@ -76,10 +76,10 @@
         <!--more elements need to be added like media preview, shared links etc-->
     </LinearLayout>
 
-    <FrameLayout
+    <!-- <FrameLayout
         android:id="@+id/giftTabContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp" /> -->
 </scrollView>
