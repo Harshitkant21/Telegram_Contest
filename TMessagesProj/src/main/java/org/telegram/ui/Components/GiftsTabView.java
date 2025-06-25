@@ -53,4 +53,40 @@ public class GiftsTabView extends FrameLayout {
         items.add("Custom Emoji Combo Pack");
         return items;
     }
+
+    private static class GiftsAdapter extends Recyclerview.Adapter<GiftViewHolder> {
+        private final List<Strinh> giftList;
+
+        GiftsAdapter(List<String> giftList) {
+            this.giftList = giftList;
+        }
+
+        @Override
+        public GiftViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+            TextView textView= new TextView(parent.getContext());
+            Recyclerview.LayoutParams lp = new Recyclerview.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            textView.setLayoutParams(lp);
+            textView.setPadding(32, 48, 32, 48);
+            textView.setTextColor(color,BLACK);
+            textView.setTextSize(16);
+            return new GiftViewHolder(textView);
+        }
+
+        @Override
+        public void onBindViewHolder(GiftViewHolder holder, int position){
+            ((TextView) holder.itemView).setText(giftList.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return giftList.size();
+        }
+    }
+
+    private static class GiftViewHolder extends Recyclerview.ViewHolder {
+        public GiftViewHolder(View itemView){
+            super(itemView);
+        }
+    }
 }
