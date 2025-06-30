@@ -1,0 +1,92 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/groupProfileScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillviewport="true"
+    android:background="?attr/colorBackground">
+
+    <LinearLayout
+        android:id="@+id/groupProfileRoot"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/groupAvatar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:src=""
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/groupName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Group Name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:textColor="?attr/textColorPrimary"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:id="@+id/groupDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Group Description goes here."
+            android:textSize="14sp"
+            android:textColor="?attr/textColorSecondary"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/groupMemberCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Members: 0"
+            android:textSize="14sp"
+            android:textColor="?attr/textColorPrimary"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/groupOnlineCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Online: 0"
+            android:textSize="14sp"
+            android:textColor="?attr/textColorPrimary"
+            android:layout_marginTop="4dp"/>
+
+        <LinearLayout
+            android:id="@+id/groupActionButtons"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/joinButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join"/>
+
+            <Button
+                android:id="@+id/inviteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invite"
+                android:layout_marginStart="8dp" />
+            
+            <Button
+                android:id="@+id/muteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mute"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
