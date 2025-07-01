@@ -1,0 +1,18 @@
+<ScrollView xmlns="http://schemas.android.com/apk/res/android"
+    android:id="@+id/channelProfileScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorbackground"
+    android:fillviewport="true">
+
+    <LinearLayout
+        android:id="@+id/channelProfileRoot"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/channelAvatar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
