@@ -1,10 +1,54 @@
-this is in group_profile_layout.xml file
 
-ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:6: AAPT: error: resource attr/colorBackground (aka org.telegram.messenger.beta:attr/colorBackground) not found.
-ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:6: AAPT: error: attribute android:fillviewport not found.
-ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:21: AAPT: error: '' is incompatible with attribute src (attr) reference|color.
-ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:32: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
-ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:41: AAPT: error: resource attr/textColorSecondary (aka org.telegram.messenger.beta:attr/textColorSecondary) not found.
-ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:50: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
-ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:59: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
+gift_tab_view
 
+check once theme in action bar getCurrentThemeResId() missing instead having getCurrentTheme
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:121: error: cannot find symbol
+            LayoutInflater.from(context).inflate(R.layout.gift_tab_view, this, true);
+                                                         ^
+  symbol:   variable gift_tab_view
+  location: class layout
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:122: error: cannot find symbol
+            giftsContainer = findViewById(R.id.giftsContainer);
+                                              ^
+  symbol:   variable giftsContainer
+  location: class id
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:31: error: cannot find symbol
+        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
+                                                ^
+  symbol:   method getCurrentThemeResId()
+  location: class Theme
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:62: error: cannot find symbol
+        groupDescription.setText(currentGroup.about);
+                                             ^
+  symbol:   variable about
+  location: variable currentGroup of type Chat
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:67: error: cannot find symbol
+        ImageLoader.getInstance().setImage(groupAvatar, avatarUrl, null, null);
+                                                        ^
+  symbol:   variable avatarUrl
+  location: class GroupProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:66: error: cannot find symbol
+        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
+                                                ^
+  symbol:   method getCurrentThemeResId()
+  location: class Theme
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:77: error: cannot find symbol
+        FrameLayout giftTbContainer = findViewById(R.id.giftTbContainer);
+                                                       ^
+  symbol:   variable giftTbContainer
+  location: class id
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:106: error: cannot find symbol
+            ImageLoader.getInstance().setImage(
+                                     ^
+  symbol:   method setImage(ImageView,String,<null>,<null>)
+  location: class ImageLoader
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:130: error: cannot find symbol
+            Intent intent = new Intent(this,GiftSendActivity.class);
+                                            ^
+  symbol:   class GiftSendActivity
+  location: class UserProfileActivity
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+9 errors

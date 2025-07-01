@@ -38,6 +38,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.FrameLayout;
 
 import org.telegram.messenger.ImageLoader;
 import org.telegram.messenger.R;
@@ -51,6 +52,8 @@ public class UserProfileActivity extends Activity {
 
     private ImageView profileAvatar;
     private TextView profileName;
+
+    private TextView profileBio;
     private Button messageButton;
     private Button callButton;
     private Button giftButton;
@@ -61,7 +64,7 @@ public class UserProfileActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
-        setContentView(R.layout.User_profile_layout)
+        setContentView(R.layout.user_profile_layout);
 
         initViews();
         loadCurrentUser();
@@ -86,8 +89,8 @@ public class UserProfileActivity extends Activity {
     }
 
     private void loadCurrentUser() {
-        int userId = UserConfig.getInstance(UserConfig.selectedAccount).getClientUserId();
-        currentUser = org.telegram.messenger.MessageController.getInstance(UserConfig.selectedAccount).getUser(userId);
+        long userId = UserConfig.getInstance(UserConfig.selectedAccount).getClientUserId();
+        currentUser = org.telegram.messenger.MessagesController.getInstance(UserConfig.selectedAccount).getUser(userId);
         if (currentUser == null) {
             Toast.makeText(this,"Failed to load user", Toast.LENGTH_SHORT).show();
             finish();
@@ -96,7 +99,7 @@ public class UserProfileActivity extends Activity {
 
     private void bindUserData() {
         profileName.setText(currentUser.first_name + " "+ currentUser.last_name);
-        profileBio.setText(currentUser.about != null ? currentUser.about : "No bio available");
+//        profileBio.setText(currentUser.about != null ? currentUser.about : "No bio available");
 
         if (currentUser.photo != null && currentUser.photo.photo_small != null){
             String photoUrl = currentUser.photo.photo_small.volume_id +"_" + currentUser.photo.photo_small.local_id;
@@ -107,7 +110,8 @@ public class UserProfileActivity extends Activity {
                 null
             );
         } else {
-            profileAvatar.setImageResource(R.drawable.avatar_placeholder);
+//            profileAvatar.setImageResource(R.drawable.avatar_placeholder);
+            profileAvatar.setImageResource(R.drawable.photo_rectangle_fill);
         }
     }
 
@@ -130,10 +134,10 @@ public class UserProfileActivity extends Activity {
     }
 
     private void toggleTheme() {
-        boolean isCurrentThemeDay = Theme.isCurrentThemeDay();
+        boolean isCurrentlyDay = Theme.isCurrentThemeDay();
 
         Theme.applyTheme(Theme.getActiveTheme(), !isCurrentlyDay);
-        Theme.saveTheme(Theme.getActiveTheme(), !isCurrentlyDay);
+//        Theme.saveTheme(Theme.getActiveTheme(), !isCurrentlyDay);
 
         NotificationCenter.getGlobalInstance().postNotificationName(
             NotificationCenter.needSetDayNightTheme,
