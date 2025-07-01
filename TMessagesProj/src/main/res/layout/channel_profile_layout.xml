@@ -1,0 +1,78 @@
+<ScrollView xmlns="http://schemas.android.com/apk/res/android"
+    android:id="@+id/channelProfileScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorbackground"
+    android:fillviewport="true">
+
+    <LinearLayout
+        android:id="@+id/channelProfileRoot"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/channelAvatar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/channelName"
+            android:layout_width="wrap_conetent"
+            android:layout_height="wrap_content"
+            android:text="channel name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:textColor="?attr/textColorPrimary"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/channelDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="channel description"
+            android:textColor="?attr/textColorSecondary"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/ChannelSubscriberCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="subscribers:0"
+            android:textSize="14sp"
+            android:textColor="?attr/textColorPrimary"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:id="@+id/horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="16dp" />
+
+            <Button
+                android:id="@+id/joinButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join" />
+
+            <Button
+                android:id="@+id/inviteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invite" />
+
+            <Button
+                android:id="@+id/muteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mute" 
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
