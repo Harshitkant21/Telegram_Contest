@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.Recyclerview;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.telegram.messenger.R;
 import org.telegram.ui.ActionBar.Theme;
@@ -20,7 +20,7 @@ import java.util.List;
 
 public class GiftsTabView extends FrameLayout {
 
-    private Recyclerview recyclerview;
+    private RecyclerView recyclerview;
     private GiftsAdapter adapter;
 
     public GiftsTabView(Context context){
@@ -28,7 +28,7 @@ public class GiftsTabView extends FrameLayout {
         init(context);
     }
 
-    public GiftsTabView(Context, context, AttributeSet attrs) {
+    public GiftsTabView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
@@ -36,8 +36,8 @@ public class GiftsTabView extends FrameLayout {
     private void init(Context context){
         setBackgroundColor(Theme.getColor(Theme.key_windowBackgroundWhite));
 
-        recyclerview = new Recyclerview(context);
-        recyclerview.setLayoutParams(new, FrameLayout.LayoutParams(
+        recyclerview = new RecyclerView(context);
+        recyclerview.setLayoutParams(new FrameLayout.LayoutParams(
             LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         recyclerview.setLayoutManager(new LinearLayoutManager(context));
         adapter = new GiftsAdapter(mockGifts());
@@ -54,8 +54,8 @@ public class GiftsTabView extends FrameLayout {
         return items;
     }
 
-    private static class GiftsAdapter extends Recyclerview.Adapter<GiftViewHolder> {
-        private final List<Strinh> giftList;
+    private static class GiftsAdapter extends RecyclerView.Adapter<GiftViewHolder> {
+        private final List<String> giftList;
 
         GiftsAdapter(List<String> giftList) {
             this.giftList = giftList;
@@ -64,11 +64,11 @@ public class GiftsTabView extends FrameLayout {
         @Override
         public GiftViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
             TextView textView= new TextView(parent.getContext());
-            Recyclerview.LayoutParams lp = new Recyclerview.LayoutParams(
+            RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             textView.setLayoutParams(lp);
             textView.setPadding(32, 48, 32, 48);
-            textView.setTextColor(color,BLACK);
+            textView.setTextColor(BLACK);
             textView.setTextSize(16);
             return new GiftViewHolder(textView);
         }
@@ -84,9 +84,9 @@ public class GiftsTabView extends FrameLayout {
         }
     }
 
-    private static class GiftViewHolder extends Recyclerview.ViewHolder {
+    private static class GiftViewHolder extends RecyclerView.ViewHolder {
         public GiftViewHolder(View itemView){
-            super(itemView)
+            super(itemView);
         }
     }
 }

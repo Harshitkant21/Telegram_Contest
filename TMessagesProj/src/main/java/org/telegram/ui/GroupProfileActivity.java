@@ -48,20 +48,20 @@ public class GroupProfileActivity extends Activity {
         muteButton = findViewById(R.id.muteButton);
     }
 
-    private void loadMockGroup() {
-        currentGroup = new TLRPC.TL_chat();
-        currentGroup.title = "ABCD";
-        currentGroup.participants_count = 1540;
-        currentGroup.online_count = 245;
-
-        // this class is for demo purposes only if any error occurs comment out the Loadmockgroup
-    }
+//    private void loadMockGroup() {
+//        currentGroup = new TLRPC.TL_chat();
+//        currentGroup.title = "ABCD";
+//        currentGroup.participants_count = 1540;
+//        currentGroup.online_count = 245;
+//
+//        // this class is for demo purposes only if any error occurs comment out the Loadmockgroup
+//    }
 
     private void bindGroupData() {
         groupName.setText(currentGroup.title);
         groupDescription.setText(currentGroup.about);
         groupMemberCount.setText("Members: "+ currentGroup.participants_count);
-        groupOnlineCount.setText("Online: "+ currentGroup.online_count);
+//        groupOnlineCount.setText("Online: "+ currentGroup.online_count);
 
         //groupAvatar.setImageResource()
         ImageLoader.getinstance().setImage(groupAvatar, avatarUrl, null, null);

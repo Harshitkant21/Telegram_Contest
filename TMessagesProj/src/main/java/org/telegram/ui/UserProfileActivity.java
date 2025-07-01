@@ -14,7 +14,7 @@ import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.TLRPC;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.ui.ActionBar.Theme;
-// import org.telegram.ui.components.GiftsTabView; // yet to create this file 
+//  import org.telegram.ui.components.GiftsTabView; // yet to create this file
 
 public class UserProfileActivity extends Activity {
 
@@ -41,15 +41,15 @@ public class UserProfileActivity extends Activity {
         Button toggleThemeButton = findViewById(R.id.toggleThemeButton);
         toggleThemeButton.setOnClickListener(v -> toggleTheme());
 
-<<<<<<<<< Temporary merge branch 1
+
         FrameLayout giftTabContainer = findViewById(R.id.giftTabContainer);
         GiftsTabView giftsTabView = new GiftsTabView(this);
         giftTabContainer.addView(giftsTabView);
-=========
+
         // FrameLayout giftTbContainer = findViewById(R.id.giftTbContainer);
         // GiftsTabView giftsTabView = new GiftsTabView(this);
         // giftTabContainer.addView(giftsTabView);
->>>>>>>>> Temporary merge branch 2
+
     }
 
     private void initViews(){
