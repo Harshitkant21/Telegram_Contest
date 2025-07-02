@@ -1,15 +1,54 @@
-User_profile_layout.xml 
-Line 22:
-  <!-- android:src="@drawable/avatar_circle_bg"/> --> not found
-Line 79-84:
- File not found
 
-UserProfileActivity.java
-Line 17: commented because of file not found
-Line 33: commented because of function not found
-Line 44-46: commented because function not found
-Line 70: commented because currentUser has no "about" member found in user schema
-Line 74: commented because setImage function is not there
-Line 81: commented because "R.drawable.avatar_placeholder" not found instead a dummy rectangle is added
-Line 97-101: commented because GiftSendActivity is not there 
-Line 108: commented because saveTheme is not found
+gift_tab_view
+
+check once theme in action bar getCurrentThemeResId() missing instead having getCurrentTheme
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:121: error: cannot find symbol
+            LayoutInflater.from(context).inflate(R.layout.gift_tab_view, this, true);
+                                                         ^
+  symbol:   variable gift_tab_view
+  location: class layout
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:122: error: cannot find symbol
+            giftsContainer = findViewById(R.id.giftsContainer);
+                                              ^
+  symbol:   variable giftsContainer
+  location: class id
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:31: error: cannot find symbol
+        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
+                                                ^
+  symbol:   method getCurrentThemeResId()
+  location: class Theme
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:62: error: cannot find symbol
+        groupDescription.setText(currentGroup.about);
+                                             ^
+  symbol:   variable about
+  location: variable currentGroup of type Chat
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:67: error: cannot find symbol
+        ImageLoader.getInstance().setImage(groupAvatar, avatarUrl, null, null);
+                                                        ^
+  symbol:   variable avatarUrl
+  location: class GroupProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:66: error: cannot find symbol
+        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
+                                                ^
+  symbol:   method getCurrentThemeResId()
+  location: class Theme
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:77: error: cannot find symbol
+        FrameLayout giftTbContainer = findViewById(R.id.giftTbContainer);
+                                                       ^
+  symbol:   variable giftTbContainer
+  location: class id
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:106: error: cannot find symbol
+            ImageLoader.getInstance().setImage(
+                                     ^
+  symbol:   method setImage(ImageView,String,<null>,<null>)
+  location: class ImageLoader
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:130: error: cannot find symbol
+            Intent intent = new Intent(this,GiftSendActivity.class);
+                                            ^
+  symbol:   class GiftSendActivity
+  location: class UserProfileActivity
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+9 errors

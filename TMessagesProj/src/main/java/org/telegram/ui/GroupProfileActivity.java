@@ -32,7 +32,7 @@ public class GroupProfileActivity extends Activity {
         setContentView(R.layout.group_profile_layout);
 
         initViews();
-        loadMockGroup();
+//        loadMockGroup();
         bindGroupData();
         setupListeners();
     }
@@ -48,23 +48,23 @@ public class GroupProfileActivity extends Activity {
         muteButton = findViewById(R.id.muteButton);
     }
 
-    private void loadMockGroup() {
-        currentGroup = new TLRPC.TL_chat();
-        currentGroup.title = "ABCD";
-        currentGroup.participants_count = 1540;
-        currentGroup.online_count = 245;
-
-        // this class is for demo purposes only if any error occurs comment out the Loadmockgroup
-    }
+//    private void loadMockGroup() {
+//        currentGroup = new TLRPC.TL_chat();
+//        currentGroup.title = "ABCD";
+//        currentGroup.participants_count = 1540;
+//        currentGroup.online_count = 245;
+//
+//        // this class is for demo purposes only if any error occurs comment out the Loadmockgroup
+//    }
 
     private void bindGroupData() {
         groupName.setText(currentGroup.title);
         groupDescription.setText(currentGroup.about);
         groupMemberCount.setText("Members: "+ currentGroup.participants_count);
-        groupOnlineCount.setText("Online: "+ currentGroup.online_count);
+        groupOnlineCount.setText("Online: "+ currentGroup);
 
         //groupAvatar.setImageResource()
-        ImageLoader.getinstance().setImage(groupAvatar, avatarUrl, null, null);
+        ImageLoader.getInstance().setImage(groupAvatar, avatarUrl, null, null);
     }
 
     private void setupListeners() {
@@ -72,6 +72,6 @@ public class GroupProfileActivity extends Activity {
 
         inviteButton.setOnClickListener(v -> Toast.makeText(this,"Invite clicked",Toast.LENGTH_SHORT).show());
 
-        muteButton.setOnClickListener(v -> Toast.makeText(this,"Mute clicked",Toast.LENGTH_SHORT).showw());
+        muteButton.setOnClickListener(v -> Toast.makeText(this,"Mute clicked",Toast.LENGTH_SHORT).show());
     }
 }

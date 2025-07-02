@@ -1,3 +1,34 @@
+// package org.telegram.ui;
+
+// import android.app.Activity;
+// import android.os.Bundle;
+// import android.view.View;
+// import android.widget.Button;
+// import org.telegram.messenger.NotificationCenter;
+// import org.telegram.ui.ActionBar.Theme;
+
+// public class UserProfileActivity extends Activity{
+
+//     @Override
+//     protected void onCreate(Bundle savedInstanceState) {
+//         super.onCreate(savedInstanceState);
+//         setContentView(R.layout.activity_user_profile);
+
+//         Button toggleThemeButton = findViewById(R.id.toggleThemeButton);
+//         toggleThemeButton.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View v) {
+//                 boolean isDay = Theme.isCurrentThemeDay();
+//                 NotificationCenter.getGlobalInstance().postNotificationName(
+//                     NotificationCenter.needSetDayNightTheme,
+//                     Theme.getActiveTheme(),
+//                     !isDay,
+//                     null, -1
+//                 );
+//             }
+//         });
+//     }
+// }
 package org.telegram.ui;
 
 import android.app.Activity;
@@ -7,6 +38,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.FrameLayout;
 
 import org.telegram.messenger.ImageLoader;
 import org.telegram.messenger.R;
@@ -14,12 +46,13 @@ import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.TLRPC;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.ui.ActionBar.Theme;
-// import org.telegram.ui.components.GiftsTabView; // yet to create this file 
+import org.telegram.ui.components.GiftsTabView; // yet to create this file
 
 public class UserProfileActivity extends Activity {
 
     private ImageView profileAvatar;
     private TextView profileName;
+
     private TextView profileBio;
     private Button messageButton;
     private Button callButton;
@@ -30,7 +63,7 @@ public class UserProfileActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
+        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
         setContentView(R.layout.user_profile_layout);
 
         initViews();
@@ -41,11 +74,9 @@ public class UserProfileActivity extends Activity {
         Button toggleThemeButton = findViewById(R.id.toggleThemeButton);
         toggleThemeButton.setOnClickListener(v -> toggleTheme());
 
-
-        // FrameLayout giftTbContainer = findViewById(R.id.giftTbContainer);
-        // GiftsTabView giftsTabView = new GiftsTabView(this);
-        // giftTabContainer.addView(giftsTabView);
-
+        FrameLayout giftTbContainer = findViewById(R.id.giftTbContainer);
+        GiftsTabView giftsTabView = new GiftsTabView(this);
+        giftTbContainer.addView(giftsTabView);
     }
 
     private void initViews(){
@@ -67,21 +98,20 @@ public class UserProfileActivity extends Activity {
     }
 
     private void bindUserData() {
-
         profileName.setText(currentUser.first_name + " "+ currentUser.last_name);
 //        profileBio.setText(currentUser.about != null ? currentUser.about : "No bio available");
-        System.out.println("Current user: " + currentUser);
+
         if (currentUser.photo != null && currentUser.photo.photo_small != null){
             String photoUrl = currentUser.photo.photo_small.volume_id +"_" + currentUser.photo.photo_small.local_id;
-//            ImageLoader.getInstance().setImage(
-//                profileAvatar,
-//                    "https://cdn.telegram.org/file/" + photoUrl,
-//                    null,
-//                    null
-//            );
+            ImageLoader.getInstance().setImage(
+                profileAvatar,
+                "https://cdn.telegram.org/file/" + photoUrl,
+                null,
+                null
+            );
         } else {
-            // profileAvatar.setImageResource(R.drawable.avatar_placeholder);
-            profileAvatar.setImageResource(R.drawable.photo_rectangle_fill); // Placeholder image
+//            profileAvatar.setImageResource(R.drawable.avatar_placeholder);
+            profileAvatar.setImageResource(R.drawable.photo_rectangle_fill);
         }
     }
 
@@ -96,23 +126,23 @@ public class UserProfileActivity extends Activity {
             Toast.makeText(this, "Calling" + currentUser.first_name, Toast.LENGTH_SHORT).show();
         });
 
-//        giftButton.setOnClickListener(v -> {
-//            Intent intent = new Intent(this,GiftSendActivity.class);
-//            intent.putExtra("user_id", currentUser.id);
-//            startActivity(intent);
-//        });
+        giftButton.setOnClickListener(v -> {
+            Intent intent = new Intent(this,GiftSendActivity.class);
+            intent.putExtra("user_id", currentUser.id);
+            startActivity(intent);
+        });
     }
 
     private void toggleTheme() {
-        boolean isCurrentThemeDay = Theme.isCurrentThemeDay();
+        boolean isCurrentlyDay = Theme.isCurrentThemeDay();
 
-        Theme.applyTheme(Theme.getActiveTheme(), !isCurrentThemeDay);
-        // Theme.saveTheme(Theme.getActiveTheme(), !isCurrentThemeDay);
+        Theme.applyTheme(Theme.getActiveTheme(), !isCurrentlyDay);
+//        Theme.saveTheme(Theme.getActiveTheme(), !isCurrentlyDay);
 
         NotificationCenter.getGlobalInstance().postNotificationName(
             NotificationCenter.needSetDayNightTheme,
             Theme.getActiveTheme(),
-            !isCurrentThemeDay,
+            !isCurrentlyDay,
             null,-1
         );
         recreate();
