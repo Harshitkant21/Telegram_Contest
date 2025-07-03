@@ -47,18 +47,24 @@ import org.telegram.tgnet.TLRPC;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.components.GiftsTabView; // yet to create this file
+import org.telegram.ui.MessagesController;
 
 public class UserProfileActivity extends Activity {
 
     private ImageView profileAvatar;
     private TextView profileName;
-
+    private TextView userPhone;
+    private TextView username;
+    private TextView userStatus;
     private TextView profileBio;
+
     private Button messageButton;
     private Button callButton;
     private Button giftButton;
+    private Button muteButton;
 
     private TLRPC.User currentUser;
+    private boolean isMuted= false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,9 +89,13 @@ public class UserProfileActivity extends Activity {
         profileAvatar = findViewById(R.id.profileAvatar);
         profileName = findViewById(R.id.profileName);
         profileBio = findViewById(R.id.profileBio);
+        userPhone = findViewById(R.id.profilePhone);
+        userUsername = findViewById(R.id.profileUsername);
+        userStatus = findViewById(R.id.profileStatus);
         messageButton = findViewById(R.id.messageButton);
         callButton = findViewById(R.id.callButton);
         giftButton = findViewById(R.id.giftButton);
+        muteButton = findViewById(R.id.muteButton);
     }
 
     private void loadCurrentUser() {
@@ -98,21 +108,59 @@ public class UserProfileActivity extends Activity {
     }
 
     private void bindUserData() {
-        profileName.setText(currentUser.first_name + " "+ currentUser.last_name);
-//        profileBio.setText(currentUser.about != null ? currentUser.about : "No bio available");
+//         profileName.setText(currentUser.first_name + " "+ currentUser.last_name);
+// //        profileBio.setText(currentUser.about != null ? currentUser.about : "No bio available");
 
-        if (currentUser.photo != null && currentUser.photo.photo_small != null){
-            String photoUrl = currentUser.photo.photo_small.volume_id +"_" + currentUser.photo.photo_small.local_id;
+//         if (currentUser.photo != null && currentUser.photo.photo_small != null){
+//             String photoUrl = currentUser.photo.photo_small.volume_id +"_" + currentUser.photo.photo_small.local_id;
+//             ImageLoader.getInstance().setImage(
+//                 profileAvatar,
+//                 "https://cdn.telegram.org/file/" + photoUrl,
+//                 null,
+//                 null
+//             );
+//         } else {
+// //            profileAvatar.setImageResource(R.drawable.avatar_placeholder);
+//             profileAvatar.setImageResource(R.drawable.photo_rectangle_fill);
+//         }
+        String fullname = (currentUser.first_name != null ? currentUser.first_name : "") +
+                (currentUser.last_name != null ? " "+ currentUser.last_name: "");
+        profileName.setText(fullname.trim().isEmpty() ? "Telegram User": fullname.trim());
+
+        if (currentUser.about != null && !currentUser.about.isEmpty()){
+            profileBio.setText(currentUser.about);
+        }else{
+            profileBio.setText("No Bio Availabble");
+        }
+
+        if (currentUser.phone != null && !currentUser.phone.isEmpty()){
+            userPhone.setText("+" + currentUser.phone);
+        }else {
+            userPhone.setText("phone number hidden");
+        }
+
+        if (currentUser.username !=null && !currentUser.username.isEmpty()){
+            userUsername.setText("@" + currentUser.username);
+        }else {
+            userUsername.setText("No username");
+        }
+
+        userStatus.setText(currentUser.status != null ? "Online": "Offline");
+
+        if(currentUser.photo != null && currentUser.photo.photo_small != null){
+            String photoUrl = currentUser.photo.photo_small.volume_id + "_" + currentUser.photo.photo_small.local_id;
             ImageLoader.getInstance().setImage(
                 profileAvatar,
-                "https://cdn.telegram.org/file/" + photoUrl,
+                "https://cdn.telegram.org/file" + photoUrl,
                 null,
                 null
             );
-        } else {
-//            profileAvatar.setImageResource(R.drawable.avatar_placeholder);
-            profileAvatar.setImageResource(R.drawable.photo_rectangle_fill);
+        }else {
+            profileAvatar.setImageResource(R.drawable.avatar_placeholder);
         }
+
+        updateMuteButton();
+            
     }
 
     private void setupListeners() {
@@ -131,7 +179,18 @@ public class UserProfileActivity extends Activity {
             intent.putExtra("user_id", currentUser.id);
             startActivity(intent);
         });
+
+        muteButton.setOnClickListener(v -> {
+            isMuted = !isMuted;
+            updateMuteButton();
+            Toast.makeText(this, (isMuted ? "Muted" : "Unmuted")+ profileName.getText(), Toast.LENGTH_SHORT).show();
+            NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.updateInterfaces);
+        });
     }
+
+    private void updateMuteButton() [
+        muteButton.setText(isMuted ? "Unmute":"Mute");
+    ]
 
     private void toggleTheme() {
         boolean isCurrentlyDay = Theme.isCurrentThemeDay();
