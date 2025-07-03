@@ -118,7 +118,7 @@
             android:layout_marginTop="8dp" />
 
         <TextView
-            android:id="@+id/ChannelSubscriberCount"
+            android:id="@+id/channelSubscriberCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="subscribers:0"
