@@ -1,0 +1,41 @@
+<scrollView xmlns:android="http://schemas.android.apk/apk/res/android"
+    android:id="@+id/giftsScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="/attr/colorBackground"
+    android:fillviewport="ture">
+
+    <LinearLayout
+        android:id="@+id/giftsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+    <!--Example hardcoded-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:background="?attr/selectableBackground">
+
+        <TextView
+            android:id="@+id/giftExample1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gift example"
+            android:textColor="?attr/textColorPrimary"/>
+
+        </LinearLayout>
+    
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/divider"/>
+
+    </LinearLayout>
+</scrollView>
