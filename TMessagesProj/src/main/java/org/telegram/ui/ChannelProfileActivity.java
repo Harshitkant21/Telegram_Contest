@@ -1,26 +1,27 @@
 package org.telegram.ui;
 import android.app.Activity;
 import android.os.Bundle;
-import android.View.view;
+import android.view.View;
 import android.widget.Button;
-import android.widget.imageView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.telegram.messenger.ImageLoader;
+import org.telegram.messenger.NotificationCenter;
 import org.telegram.messenger.R;
 import org.telegram.tgnet.TLRPC;
 
 public class ChannelProfileActivity extends Activity{
 
-    private ImageView channelAvater;
+    private ImageView channelAvatar;
     private TextView channelName;
     private TextView channelDescription;
     private TextView channelSubcriberCount;
     private Button joinButton;
     private Button muteButton;
 
-    private TLRPC.chat currentChannel;
+    private TLRPC.TL_channel currentChannel;
     private boolean isMuted= false;
     private boolean isMember= false;
 
@@ -31,7 +32,7 @@ public class ChannelProfileActivity extends Activity{
         setContentView(R.layout.channel_profile_layout);
 
         initViews();
-        loadMockChannel();
+//        loadMockChannel();
         bindChannelData();
         setupListeners();
     }
@@ -39,8 +40,8 @@ public class ChannelProfileActivity extends Activity{
     private void initViews(){
         channelAvatar = findViewById(R.id.channelAvatar);
         channelName = findViewById(R.id.channelName);
-        channelDescription = findViewById(R.id.Description);
-        channelSubcriberCount = findViewById(R.id.channelSubcriberCount);
+        channelDescription = findViewById(R.id.channelDescription);
+        channelSubcriberCount = findViewById(R.id.channelSubscriberCount);
         joinButton = findViewById(R.id.joinButton);
         muteButton = findViewById(R.id.muteButton);
     }
@@ -60,7 +61,7 @@ public class ChannelProfileActivity extends Activity{
         currentChannel.participants_count = 123456;
 
         currentChannel.photo= new TLRPC.TL_chatPhoto();
-        currentChannel.photo.photo_small = new TLRPC.TL_fileLocation();
+        currentChannel.photo.photo_small = new TLRPC.TL_fileLocationToBeDeprecated();
         currentChannel.photo.photo_small.volume_id= 123456789;
         currentChannel.photo.photo_small.local_id= 123456789;
 
@@ -75,10 +76,12 @@ public class ChannelProfileActivity extends Activity{
 
         if (currentChannel.photo != null && currentChannel.photo.photo_small != null){
             String photoUrl = currentChannel.photo.photo_small.volume_id + "_" + currentChannel.photo.photo_small.local_id;
-            ImageLoader.getinstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,null);
+            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,null);
         } else{
-            channelAvatar.setImageResource(R.drawable.channel_avatar_placeholder);
+//            channelAvatar.setImageResource(R.drawable.channel_avatar_placeholder);
+            channelAvatar.setImageResource(R.drawable.photo_rectangle_fill);
         }
+
 
         updateJoinButton();
         updateMuteButton();

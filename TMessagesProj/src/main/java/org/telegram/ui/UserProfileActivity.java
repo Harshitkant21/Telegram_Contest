@@ -80,9 +80,9 @@ public class UserProfileActivity extends Activity {
         Button toggleThemeButton = findViewById(R.id.toggleThemeButton);
         toggleThemeButton.setOnClickListener(v -> toggleTheme());
 
-        FrameLayout giftTbContainer = findViewById(R.id.giftTbContainer);
+        FrameLayout giftTabContainer = findViewById(R.id.giftTbContainer);
         GiftsTabView giftsTabView = new GiftsTabView(this);
-        giftTbContainer.addView(giftsTabView);
+        giftTabContainer.addView(giftsTabView);
     }
 
     private void initViews(){
