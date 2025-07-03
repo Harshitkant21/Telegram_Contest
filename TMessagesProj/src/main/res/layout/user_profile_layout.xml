@@ -37,13 +37,40 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="14dp"/>
 
+        <TextView
+            android:id="@+id/profileUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@username"
+            android:textSize="14sp"
+            android:textColor="?attr/textColorPrimary"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/profilePhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+11837988379"
+            android:textSize="14sp"
+            android:textColor="?attr/textColorPrimary"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/profileStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Online"
+            android:textSize="14sp"
+            android:textColor="?attr/textColorPrimary"
+            android:layout_marginTop="4dp"/>
+
         <LinearLayout
-            android:id="@+actionButtons"
+            android:id="@+id/userProfileButtons"
             android:orientation="horizontal"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp">            
 
             <Button
                 android:id="@+id/messageButton"
@@ -72,6 +99,13 @@
                 android:text="Toggle theme"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="24dp"/>
+
+            <Button
+                android:id="@+id/muteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mute"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
         <!--more elements need to be added like media preview, shared links etc-->
     </LinearLayout>
