@@ -118,7 +118,7 @@ public class GiftsTabView extends ScrollView {
     }
 
     private void init (Context context){
-            LayoutInflater.from(context).inflate(R.layout.gift_tab_view, this, true);
+            LayoutInflater.from(context).inflate(R.layout.gifts_tab_view, this, true);
             giftsContainer = findViewById(R.id.giftsContainer);
 
             setBackgroundColor(Theme.getColor(Theme.key_windowBackgroundWhite));

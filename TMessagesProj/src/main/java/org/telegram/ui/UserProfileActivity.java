@@ -54,7 +54,7 @@ public class UserProfileActivity extends Activity {
     private ImageView profileAvatar;
     private TextView profileName;
     private TextView userPhone;
-    private TextView username;
+    private TextView userUsername;
     private TextView userStatus;
     private TextView profileBio;
 
@@ -69,7 +69,7 @@ public class UserProfileActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
+//        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
         setContentView(R.layout.user_profile_layout);
 
         initViews();
@@ -188,9 +188,9 @@ public class UserProfileActivity extends Activity {
         });
     }
 
-    private void updateMuteButton() [
-        muteButton.setText(isMuted ? "Unmute":"Mute");
-    ]
+    private void updateMuteButton() {
+        muteButton.setText(isMuted ? "Unmute" : "Mute");
+    }
 
     private void toggleTheme() {
         boolean isCurrentlyDay = Theme.isCurrentThemeDay();
@@ -201,7 +201,7 @@ public class UserProfileActivity extends Activity {
         NotificationCenter.getGlobalInstance().postNotificationName(
             NotificationCenter.needSetDayNightTheme,
             Theme.getActiveTheme(),
-            !isCurrentlyDay,
+            !Theme.isCurrentThemeDay(),
             null,-1
         );
         recreate();

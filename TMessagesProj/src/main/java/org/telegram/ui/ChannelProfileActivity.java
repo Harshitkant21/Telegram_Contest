@@ -28,7 +28,7 @@ public class ChannelProfileActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
+//        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
         setContentView(R.layout.channel_profile_layout);
 
         initViews();

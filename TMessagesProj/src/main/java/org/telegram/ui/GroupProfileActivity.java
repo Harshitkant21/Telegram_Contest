@@ -28,7 +28,7 @@ public class GroupProfileActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
+//        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
         setContentView(R.layout.group_profile_layout);
 
         initViews();
@@ -64,6 +64,7 @@ public class GroupProfileActivity extends Activity {
         groupOnlineCount.setText("Online: "+ currentGroup);
 
         //groupAvatar.setImageResource()
+        String avatarUrl = "https://cdn.pixabay.com/photo/2013/07/12/19/14/avatar-154375_1280.png";
         ImageLoader.getInstance().setImage(groupAvatar, avatarUrl, null, null);
     }
 
