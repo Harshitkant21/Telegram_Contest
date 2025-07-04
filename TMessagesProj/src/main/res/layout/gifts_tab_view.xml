@@ -1,11 +1,11 @@
-<scrollView xmlns:android="http://schemas.android.apk/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/giftsScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="/attr/colorBackground"
-    android:fillviewport="ture">
+    android:fillviewport="true">
 
-    <LinearLayout
+    <LinearLayout 
         android:id="@+id/giftsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
