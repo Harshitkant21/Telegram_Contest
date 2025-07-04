@@ -17,9 +17,10 @@ public class ChannelProfileActivity extends Activity{
     private ImageView channelAvatar;
     private TextView channelName;
     private TextView channelDescription;
-    private TextView channelSubcriberCount;
+    private TextView channelSubscriberCount;
     private Button joinButton;
     private Button muteButton;
+    private Button inviteButton;
 
     private TLRPC.TL_channel currentChannel;
     private boolean isMuted= false;
@@ -28,11 +29,12 @@ public class ChannelProfileActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
+       // setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
         setContentView(R.layout.channel_profile_layout);
 
         initViews();
 //        loadMockChannel();
+        loadChannelData(); 
         bindChannelData();
         setupListeners();
     }
@@ -41,9 +43,10 @@ public class ChannelProfileActivity extends Activity{
         channelAvatar = findViewById(R.id.channelAvatar);
         channelName = findViewById(R.id.channelName);
         channelDescription = findViewById(R.id.channelDescription);
-        channelSubcriberCount = findViewById(R.id.channelSubscriberCount);
+        channelSubscriberCount = findViewById(R.id.channelSubscriberCount);
         joinButton = findViewById(R.id.joinButton);
         muteButton = findViewById(R.id.muteButton);
+        inviteButton = findViewById(R.id.inviteButton);
     }
 
     // private void loadMockChannel() {
@@ -104,6 +107,10 @@ public class ChannelProfileActivity extends Activity{
             public void onClick(View view){
                 toggleMute();
             }
+        });
+
+        inviteButton.setOnClickListener(new View.OnClickListener(){
+            Toast.makeText(ChannelProfileActivity.this,"Invite sent!",Toast.LENGTH_SHORT).show();
         });
     }
 
