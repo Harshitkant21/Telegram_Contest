@@ -99,41 +99,57 @@ import java.util.ArrayList;
 public class GiftsTabView extends ScrollView {
 
     private LinearLayout giftsContainer;
-    private RecyclerView recyclerview;
-    private GiftsAdapter adapter;
+    // private RecyclerView recyclerview;
+    // private GiftsAdapter adapter;
+    private Context context;
 
     public GiftsTabView(Context context) {
             super(context);
             init(context);
     }
 
-    public GiftsTabView(Context context, AttributeSet attrs) {
+    public GiftsTabView(Context context, android.util.AttributeSet attrs) {
             super(context, attrs);
             init(context);
     }
 
-    public GiftsTabView(Context context, AttributeSet attrs, int defStyleAttr){
+    public GiftsTabView(Context context, android.util.AttributeSet attrs, int defStyleAttr){
             super(context, attrs, defStyleAttr);
             init(context);
     }
 
-    private void init (Context context){
-            LayoutInflater.from(context).inflate(R.layout.gifts_tab_view, this, true);
-            giftsContainer = findViewById(R.id.giftsContainer);
+    private void init (Context ctx){
+        this.context = ctx;
+        LayoutInflater.from(context).inflate(R.layout.gifts_tab_view, this , true);
+        giftsContainer = findViewById(R.id.giftsContainer);
+        setBackgroundColor(Theme.getColor(Theme.key_windowBackgroundWhite));
 
-            setBackgroundColor(Theme.getColor(Theme.key_windowBackgroundWhite));
+        renderGifts();
 
 
-            recyclerview = new RecyclerView(context);
-            recyclerview.setLayoutParams(new FrameLayout.LayoutParams(
-                    LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-            recyclerview.setLayoutManager(new LinearLayoutManager(context));
-            List<String> giftItems = mockGifts();
-            adapter = new GiftsAdapter(giftItems);
-            recyclerview.setAdapter(adapter);
-            addView(recyclerview);
+            // recyclerview = new RecyclerView(context);
+            // recyclerview.setLayoutParams(new FrameLayout.LayoutParams(
+            //         LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+            // recyclerview.setLayoutManager(new LinearLayoutManager(context));
+            // List<String> giftItems = mockGifts();
+            // adapter = new GiftsAdapter(giftItems);
+            // recyclerview.setAdapter(adapter);
+            // addView(recyclerview);
 //            loadMockGifts(context);
+            
     }
+
+    private void renderGifts()[
+        giftsContainer.removeAllViews();
+
+        //section1 
+        addSectionTitle("Gifts you received");
+        addRecyclerView(mockReceivedGifts());
+
+        //section2
+        addSectionTitle("gifts you sent");
+        addRecyclerView(mockSentGifts());
+    ]
 
 
 //    private void loadMockGifts(Context context){
@@ -142,15 +158,46 @@ public class GiftsTabView extends ScrollView {
 //            //more gift pack yet to add will do that later
 //        };
 //    }
-    private List<String> mockGifts() {
-        List<String> giftItems = new ArrayList<>();
-        giftItems.add("sticker pack");
-        // Add more gifts as needed
-        return giftItems;
+    // private List<String> mockGifts() {
+    //     List<String> giftItems = new ArrayList<>();
+    //     giftItems.add("sticker pack");
+    //     // Add more gifts as needed
+    //     return giftItems;
+    // }
+
+    private void addSectionTitle(String titleText) {
+        TextView title = new TextView(conetxt);
+        title.setText(titleText);
+        title.setTextSize(16);
+        title.setPadding(24, 32, 24, 16);
+        title.setTypeFace(null, android.graphics.TypeFace.BOLD);
+        title.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
+        giftsContainer.addView(title);
     }
 
+    private void addRecyclerView(List<giftItems> giftList){
+        RecyclerView recycler = new RecyclerView(conetext);
+        recycler.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+        recycler.setNestedScrollingEnabled(false);
+        recycler.setLayoutManager(new LinearLayoutManager(conetext));
+        recycler.setAdapter(new GiftsAdapter(giftList));
+        giftsContainer.addView(recycler);
+    }
 
-    private static class GiftsAdapter extends RecyclerView.Adapter<GiftViewHolder> {
+    private List<GiftItem> mockReceivedGifts() {
+        List<GiftItem> items = new ArrayList<>();
+        items.add(new GiftItem("Sticker pack", "Cats Deluxe",R.drawable.ic_gift));
+        items.add(new GiftItem("premium 3 months", "Gifted premium",R.drawable.ic_premium_gift));
+        return items;
+    }
+
+    private List<GiftItem> mockSentGifts() {
+        List<GiftItem> items= new ArrayList<>();
+        items.add(new GiftItem("Animated Emoji Set","Space Reactions", R.drawable.ic_emoji_gift));
+        items.add(new GiftItem("Theme Pack","Dark Mode Galaxy", R.drawable.ic_theme_gift));
+    }
+
+    private static class GiftsAdapter extends RecyclerView.Adapter<GiftsAdapter.GiftViewHolder> {
         private final List<String> giftList;
 
         GiftsAdapter(List<String> giftList) {
@@ -159,46 +206,87 @@ public class GiftsTabView extends ScrollView {
 
         @Override
         public GiftViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-            TextView textView= new TextView(parent.getContext());
-            RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            textView.setLayoutParams(lp);
-            textView.setPadding(32, 48, 32, 48);
-            textView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
-            textView.setTextSize(16);
-            return new GiftViewHolder(textView);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gift_item, parent, false);
+            return new GiftViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(GiftViewHolder holder, int position){
-            ((TextView) holder.itemView).setText(giftList.get(position));
+            GiftItem gift= giftList.get(position);
+            holder.title.setText(gift.title);
+            holder.subtitle.setText(gift.subtitle);
+            holder.icon.setImageResource(R.iconResId); // maybe an error in this line
         }
+
+
+        // @Override
+        // public GiftViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        //     TextView textView= new TextView(parent.getContext());
+        //     RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(
+        //         ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        //     textView.setLayoutParams(lp);
+        //     textView.setPadding(32, 48, 32, 48);
+        //     textView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
+        //     textView.setTextSize(16);
+        //     return new GiftViewHolder(textView);
+        // }
+
+    //     @Override
+    //     public void onBindViewHolder(GiftViewHolder holder, int position){
+    //         ((TextView) holder.itemView).setText(giftList.get(position));
+    //     }
 
         @Override
         public int getItemCount() {
             return giftList.size();
         }
-    }
 
-    private static class GiftViewHolder extends RecyclerView.ViewHolder {
-        public GiftViewHolder(View itemView){
-            super(itemView);
+        static class GiftViewHolder extends Recyclerview.ViewHolder {
+            TextView title, subtitle;
+            ImageView icon;
+
+            GiftViewHolder(View itemView){
+                super(itemView);
+                title = itemView.findViewById(R.giftTitle);
+                subtitle = itemView.findViewById(R.giftSubtitle);
+                icon = itemView.findViewById(R.giftIcon);
+            }
         }
     }
 
-    private View createGiftItemView(Context context, String giftText) {
-        TextView textView = new TextView(context);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        textView.setLayoutParams(params);
-        textView.setPadding(32, 48, 32, 48);
-        textView.setTextSize(16);
-        textView.setTextColor(Theme.key_windowBackgroundWhiteBlackText);
-        textView.setText(giftText);
-        textView.setBackgroundResource(R.drawable.list_selector_ex); // clickable ripple effect
-        return textView;
+    // private static class GiftViewHolder extends RecyclerView.ViewHolder {
+    //     public GiftViewHolder(View itemView){
+    //         super(itemView);
+    //     }
+    // }
 
+    // private View createGiftItemView(Context context, String giftText) {
+    //     TextView textView = new TextView(context);
+    //     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+    //         LinearLayout.LayoutParams.MATCH_PARENT,
+    //         LinearLayout.LayoutParams.WRAP_CONTENT
+    //     );
+    //     textView.setLayoutParams(params);
+    //     textView.setPadding(32, 48, 32, 48);
+    //     textView.setTextSize(16);
+    //     textView.setTextColor(Theme.key_windowBackgroundWhiteBlackText);
+    //     textView.setText(giftText);
+    //     textView.setBackgroundResource(R.drawable.list_selector_ex); // clickable ripple effect
+    //     return textView;
+
+    // }
+
+    private static class GiftItem{
+        final String title;
+        final String subtitle;
+        final int iconResId;
+
+        GiftItem(String title, String subtitle, int iconResId){
+            this.title = title;
+            this.subtitle = subtitle;
+            this.iconResId = iconResId;
+        }
     }
+
+
 }
