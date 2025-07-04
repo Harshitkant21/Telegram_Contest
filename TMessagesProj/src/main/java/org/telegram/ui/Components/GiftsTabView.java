@@ -55,7 +55,7 @@
 //                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 //             textView.setLayoutParams(lp);
 //             textView.setPadding(32, 48, 32, 48);
-//             textView.setTextColor(color,BLACK);
+//             textView.setTextColor(color.BLACK);
 //             textView.setTextSize(16);
 //             return new GiftViewHolder(textView);
 //         }
@@ -139,7 +139,7 @@ public class GiftsTabView extends ScrollView {
             
     }
 
-    private void renderGifts()[
+    private void renderGifts(){
         giftsContainer.removeAllViews();
 
         //section1 
@@ -149,7 +149,7 @@ public class GiftsTabView extends ScrollView {
         //section2
         addSectionTitle("gifts you sent");
         addRecyclerView(mockSentGifts());
-    ]
+    }
 
 
 //    private void loadMockGifts(Context context){
@@ -166,7 +166,7 @@ public class GiftsTabView extends ScrollView {
     // }
 
     private void addSectionTitle(String titleText) {
-        TextView title = new TextView(conetxt);
+        TextView title = new TextView(conetext);
         title.setText(titleText);
         title.setTextSize(16);
         title.setPadding(24, 32, 24, 16);
@@ -176,7 +176,7 @@ public class GiftsTabView extends ScrollView {
     }
 
     private void addRecyclerView(List<giftItems> giftList){
-        RecyclerView recycler = new RecyclerView(conetext);
+        RecyclerView recycler = new RecyclerView(context);
         recycler.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         recycler.setNestedScrollingEnabled(false);
         recycler.setLayoutManager(new LinearLayoutManager(conetext));
@@ -247,9 +247,9 @@ public class GiftsTabView extends ScrollView {
 
             GiftViewHolder(View itemView){
                 super(itemView);
-                title = itemView.findViewById(R.giftTitle);
-                subtitle = itemView.findViewById(R.giftSubtitle);
-                icon = itemView.findViewById(R.giftIcon);
+                title = itemView.findViewById(R.id.giftTitle);
+                subtitle = itemView.findViewById(R.id.giftSubtitle);
+                icon = itemView.findViewById(R.id.giftIcon);
             }
         }
     }
