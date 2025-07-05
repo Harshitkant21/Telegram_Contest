@@ -157,14 +157,19 @@ public class UserProfileActivity extends Activity {
 
         if(currentUser.photo != null && currentUser.photo.photo_small != null){
             String photoUrl = currentUser.photo.photo_small.volume_id + "_" + currentUser.photo.photo_small.local_id;
-            ImageLoader.getInstance().setImage(
-                profileAvatar,
-                "https://cdn.telegram.org/file" + photoUrl,
-                null,
-                null
+            // ImageLoader.getInstance().setImage(
+            //     profileAvatar,
+            //     "https://cdn.telegram.org/file" + photoUrl,
+            //     null,
+            //     null
+            ImageLoader.getInstance().setImage(profileAvatar,"https://cdn.telegram.org/file"+ photoUrl,null,
+                Theme.getThemeDrawable(this,R.drawable.avatar_placeholder, Theme.key_avatar_background)
             );
         }else {
-            profileAvatar.setImageResource(R.drawable.avatar_placeholder);
+            // profileAvatar.setImageResource(R.drawable.avatar_placeholder);
+            profileAvatar.setImageDrawable(
+                Theme.getThemeDrawable(this,R.drawable.avatar_placeholder,Theme.key_avatar_background)
+            );
         }
 
         updateMuteButton();
