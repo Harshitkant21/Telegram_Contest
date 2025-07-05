@@ -75,7 +75,7 @@ public class ChannelProfileActivity extends Activity{
     private void bindChannelData(){
         channelName.setText(currentChannel.title);
         channelDescription.setText(currentChannel.about);
-        channelSubcriberCount.setText("Subscribers: "+ currentChannel.participants_count);
+        channelSubscriberCount.setText("Subscribers: "+ currentChannel.participants_count);
 
         if (currentChannel.photo != null && currentChannel.photo.photo_small != null){
             String photoUrl = currentChannel.photo.photo_small.volume_id + "_" + currentChannel.photo.photo_small.local_id;

@@ -28,11 +28,11 @@ public class GroupProfileActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
+        //setTheme(org.telegram.ui.ActionBar.Theme.getCurrentThemeResId());
         setContentView(R.layout.group_profile_layout);
 
         initViews();
-//        loadMockGroup();
+        loadMockGroup();
         bindGroupData();
         setupListeners();
     }
@@ -48,14 +48,14 @@ public class GroupProfileActivity extends Activity {
         muteButton = findViewById(R.id.muteButton);
     }
 
-//    private void loadMockGroup() {
-//        currentGroup = new TLRPC.TL_chat();
-//        currentGroup.title = "ABCD";
-//        currentGroup.participants_count = 1540;
-//        currentGroup.online_count = 245;
-//
-//        // this class is for demo purposes only if any error occurs comment out the Loadmockgroup
-//    }
+    private void loadMockGroup() {
+       currentGroup = new TLRPC.TL_chat();
+       currentGroup.title = "ABCD";
+       currentGroup.participants_count = 1540;
+       currentGroup.online_count = 245;
+
+       // this class is for demo purposes only if any error occurs comment out the Loadmockgroup
+   }
 
     private void bindGroupData() {
         groupName.setText(currentGroup.title);
@@ -64,7 +64,6 @@ public class GroupProfileActivity extends Activity {
         groupOnlineCount.setText("Online: "+ currentGroup);
 
         //groupAvatar.setImageResource()
-        String avatarUrl = "https://cdn.pixabay.com/photo/2013/07/12/19/14/avatar-154375_1280.png";
         ImageLoader.getInstance().setImage(groupAvatar, avatarUrl, null, null);
     }
 
