@@ -167,7 +167,7 @@ public class GiftsTabView extends ScrollView {
     // }
 
     private void addSectionTitle(String titleText) {
-        TextView title = new TextView(conetext);
+        TextView title = new TextView(context);
         title.setText(titleText);
         title.setTextSize(16);
         title.setPadding(24, 32, 24, 16);
@@ -180,7 +180,7 @@ public class GiftsTabView extends ScrollView {
         RecyclerView recycler = new RecyclerView(context);
         recycler.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         recycler.setNestedScrollingEnabled(false);
-        recycler.setLayoutManager(new LinearLayoutManager(conetext));
+        recycler.setLayoutManager(new LinearLayoutManager(context));
         recycler.setAdapter(new GiftsAdapter(giftList));
         giftsContainer.addView(recycler);
     }
