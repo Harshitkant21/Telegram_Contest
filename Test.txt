@@ -1,24 +1,115 @@
-In both channelProfileActivity and UserProfileActivity
-getCurrentThemeResId this is not found in the theme file instead it has getCurrentTheme 
-
-private TLRPC.chat currentChannel; instead of this i add private TLRPC.TL_channel currentChannel; check once is it correct or not once also these are not found means TLRPC is not found by it
-because of it also it doesn't find any about part 
-
-setImage is not found in all files channelProfileActivity UserProfileActivity GroupProfileActivity
-ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,null);
-
-gift_tab_view is missing in layout
-
-also that about error is present in both files channelProfileActivity and GroupProfileActivity
-
-
-
-setImage error have missing avatarUrl this is in GroupProfileActivity
-
-
-both are in UserProfileActivity
-giftTbContainer is missing 
-GiftSendActivity is missing
-
-
-giftsContainer is also missing in GiftsTabView
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:50: error: cannot find symbol
+import org.telegram.ui.MessagesController;
+                      ^
+  symbol:   class MessagesController
+  location: package org.telegram.ui
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:63: error: cannot find symbol
+        currentChannel.about = "Official page";
+                      ^
+  symbol:   variable about
+  location: variable currentChannel of type TL_channel
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:77: error: cannot find symbol
+        channelDescription.setText(currentChannel.about);
+                                                 ^
+  symbol:   variable about
+  location: variable currentChannel of type TL_channel
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:78: error: cannot find symbol
+        channelSubcriberCount.setText("Subscribers: "+ currentChannel.participants_count);
+        ^
+  symbol:   variable channelSubcriberCount
+  location: class ChannelProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:82: error: cannot find symbol
+            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,null);
+                                     ^
+  symbol:   method setImage(ImageView,String,<null>,<null>)
+  location: class ImageLoader
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:184: error: incompatible types: List<GiftItem> cannot be converted to List<String>
+        recycler.setAdapter(new GiftsAdapter(giftList));
+                                             ^
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:190: error: cannot find symbol
+        items.add(new GiftItem("Sticker pack", "Cats Deluxe",R.drawable.ic_gift));
+                                                                       ^
+  symbol:   variable ic_gift
+  location: class drawable
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:191: error: cannot find symbol
+        items.add(new GiftItem("premium 3 months", "Gifted premium",R.drawable.ic_premium_gift));
+                                                                              ^
+  symbol:   variable ic_premium_gift
+  location: class drawable
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:197: error: cannot find symbol
+        items.add(new GiftItem("Animated Emoji Set","Space Reactions", R.drawable.ic_emoji_gift));
+                                                                                 ^
+  symbol:   variable ic_emoji_gift
+  location: class drawable
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:198: error: cannot find symbol
+        items.add(new GiftItem("Theme Pack","Dark Mode Galaxy", R.drawable.ic_theme_gift));
+                                                                          ^
+  symbol:   variable ic_theme_gift
+  location: class drawable
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:210: error: cannot find symbol
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gift_item, parent, false);
+                                                                                 ^
+  symbol:   variable gift_item
+  location: class layout
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:216: error: incompatible types: String cannot be converted to GiftItem
+            GiftItem gift= giftList.get(position);
+                                       ^
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:219: error: cannot find symbol
+            holder.icon.setImageResource(R.iconResId); // maybe an error in this line
+                                          ^
+  symbol:   variable iconResId
+  location: class R
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:62: error: cannot find symbol
+        groupDescription.setText(currentGroup.about);
+                                             ^
+  symbol:   variable about
+  location: variable currentGroup of type Chat
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:68: error: cannot find symbol
+        ImageLoader.getInstance().setImage(groupAvatar, avatarUrl, null, null);
+                                 ^
+  symbol:   method setImage(ImageView,String,<null>,<null>)
+  location: class ImageLoader
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:83: error: cannot find symbol
+        FrameLayout giftTabContainer = findViewById(R.id.giftTbContainer);
+                                                        ^
+  symbol:   variable giftTbContainer
+  location: class id
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:130: error: cannot find symbol
+        if (currentUser.about != null && !currentUser.about.isEmpty()){
+                       ^
+  symbol:   variable about
+  location: variable currentUser of type User
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:130: error: cannot find symbol
+        if (currentUser.about != null && !currentUser.about.isEmpty()){
+                                                     ^
+  symbol:   variable about
+  location: variable currentUser of type User
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:131: error: cannot find symbol
+            profileBio.setText(currentUser.about);
+                                          ^
+  symbol:   variable about
+  location: variable currentUser of type User
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:152: error: cannot find symbol
+            ImageLoader.getInstance().setImage(
+                                     ^
+  symbol:   method setImage(ImageView,String,<null>,<null>)
+  location: class ImageLoader
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:159: error: cannot find symbol
+            profileAvatar.setImageResource(R.drawable.avatar_placeholder);
+                                                     ^
+  symbol:   variable avatar_placeholder
+  location: class drawable
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:178: error: cannot find symbol
+            Intent intent = new Intent(this,GiftSendActivity.class);
+                                            ^
+  symbol:   class GiftSendActivity
+  location: class UserProfileActivity
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+22 errors
