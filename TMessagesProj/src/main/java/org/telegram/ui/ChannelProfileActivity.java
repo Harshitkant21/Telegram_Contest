@@ -109,9 +109,9 @@ public class ChannelProfileActivity extends Activity{
             }
         });
 
-        inviteButton.setOnClickListener(new View.OnClickListener(){
-            Toast.makeText(ChannelProfileActivity.this,"Invite sent!",Toast.LENGTH_SHORT).show();
-        });
+//        inviteButton.setOnClickListener(new View.OnClickListener(){
+//            Toast.makeText(ChannelProfileActivity.this,"Invite sent!",Toast.LENGTH_SHORT).show();
+//        });
     }
 
     private void handleJoinLeave() {
