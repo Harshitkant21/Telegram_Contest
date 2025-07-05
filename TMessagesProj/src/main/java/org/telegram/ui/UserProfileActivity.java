@@ -127,11 +127,19 @@ public class UserProfileActivity extends Activity {
                 (currentUser.last_name != null ? " "+ currentUser.last_name: "");
         profileName.setText(fullname.trim().isEmpty() ? "Telegram User": fullname.trim());
 
-        if (currentUser.about != null && !currentUser.about.isEmpty()){
-            profileBio.setText(currentUser.about);
-        }else{
-            profileBio.setText("No Bio Availabble");
+        TLRPC.UserFull userFull = MessagesController.getInstance(UserConfig.selectedAccount).getUserFull(currentUser.id, false);
+
+        if (userFull != null && userFull.about != null && !userFull.about.isEmpty()){
+            profileBio.setText(userFull.about);
+        } else {
+            profileBio.setText("No Bio Available");
         }
+
+        // if (currentUser.about != null && !currentUser.about.isEmpty()){
+        //     // profileBio.setText(currentUser.about);
+        // }else{
+        //     profileBio.setText("No Bio Availabble");
+        // }
 
         if (currentUser.phone != null && !currentUser.phone.isEmpty()){
             userPhone.setText("+" + currentUser.phone);
