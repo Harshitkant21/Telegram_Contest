@@ -81,6 +81,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -175,7 +176,7 @@ public class GiftsTabView extends ScrollView {
         giftsContainer.addView(title);
     }
 
-    private void addRecyclerView(List<giftItems> giftList){
+    private void addRecyclerView(List<GiftItem> giftList){
         RecyclerView recycler = new RecyclerView(context);
         recycler.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         recycler.setNestedScrollingEnabled(false);
@@ -241,7 +242,7 @@ public class GiftsTabView extends ScrollView {
             return giftList.size();
         }
 
-        static class GiftViewHolder extends Recyclerview.ViewHolder {
+        static class GiftViewHolder extends RecyclerView.ViewHolder {
             TextView title, subtitle;
             ImageView icon;
 
