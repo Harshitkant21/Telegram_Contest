@@ -171,7 +171,7 @@ public class GiftsTabView extends ScrollView {
         title.setText(titleText);
         title.setTextSize(16);
         title.setPadding(24, 32, 24, 16);
-        title.setTypeFace(null, android.graphics.Typeface.BOLD);
+        title.setTypeface(null, android.graphics.Typeface.BOLD);
         title.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         giftsContainer.addView(title);
     }

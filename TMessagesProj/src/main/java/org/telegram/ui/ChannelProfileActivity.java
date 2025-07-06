@@ -10,6 +10,7 @@ import android.widget.Toast;
 import org.telegram.messenger.ImageLoader;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.messenger.R;
+import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.TLRPC;
 
 public class ChannelProfileActivity extends Activity{
@@ -76,7 +77,7 @@ public class ChannelProfileActivity extends Activity{
         channelName.setText(currentChannel.title);
         // channelDescription.setText(currentChannel.about);
         TLRPC.ChatFull channelFull= MessagesController.getInstance(UserConfig.selectedAccount).getChatFull(currentChannel.id, false);
-        if (channelFull != null && channelFull.about != null && !channelFull.about isEmpty()){
+        if (channelFull != null && channelFull.about != null && !channelFull.about.isEmpty()){
             channelDescription.setText(channelFull.about);
         }else{
             channelDescription.setText("No bio available");

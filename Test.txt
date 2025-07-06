@@ -6,26 +6,36 @@ import org.telegram.ui.MessagesController;
                       ^
   symbol:   class MessagesController
   location: package org.telegram.ui
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:63: error: cannot find symbol
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:64: error: cannot find symbol
         currentChannel.about = "Official page";
                       ^
   symbol:   variable about
   location: variable currentChannel of type TL_channel
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:77: error: cannot find symbol
-        channelDescription.setText(currentChannel.about);
-                                                 ^
-  symbol:   variable about
-  location: variable currentChannel of type TL_channel
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:82: error: cannot find symbol
-            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,null);
-                                     ^
-  symbol:   method setImage(ImageView,String,<null>,<null>)
-  location: class ImageLoader
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:174: error: cannot find symbol
-        title.setTypeFace(null, android.graphics.Typeface.BOLD);
-             ^
-  symbol:   method setTypeFace(<null>,int)
-  location: variable title of type TextView
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:79: error: cannot find symbol
+        TLRPC.ChatFull channelFull= MessagesController.getInstance(UserConfig.selectedAccount).getChatFull(currentChannel.id, false);
+                                    ^
+  symbol:   variable MessagesController
+  location: class ChannelProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:90: error: cannot find symbol
+            Theme.getThemeDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background));
+                                                                        ^
+  symbol:   variable Theme
+  location: class ChannelProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:90: error: cannot find symbol
+            Theme.getThemeDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background));
+            ^
+  symbol:   variable Theme
+  location: class ChannelProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:94: error: cannot find symbol
+            channelAvatar.setImageDrawable(Theme.getThemeDrawable(this,R.drawable.photo_rectangle_fill, Theme.key_avatar_background));
+                                                                                                        ^
+  symbol:   variable Theme
+  location: class ChannelProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:94: error: cannot find symbol
+            channelAvatar.setImageDrawable(Theme.getThemeDrawable(this,R.drawable.photo_rectangle_fill, Theme.key_avatar_background));
+                                           ^
+  symbol:   variable Theme
+  location: class ChannelProfileActivity
 D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:184: error: incompatible types: List<GiftItem> cannot be converted to List<String>
         recycler.setAdapter(new GiftsAdapter(giftList));
                                              ^
@@ -87,5 +97,5 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-17 errors
+19 errors
 3 warnings
