@@ -74,15 +74,23 @@ public class ChannelProfileActivity extends Activity{
 
     private void bindChannelData(){
         channelName.setText(currentChannel.title);
-        channelDescription.setText(currentChannel.about);
+        // channelDescription.setText(currentChannel.about);
+        TLRPC.ChatFull channelFull= MessagesController.getInstance(UserConfig.selectedAccount).getChatFull(currentChannel.id, false);
+        if (channelFull != null && channelFull.about != null && !channelFull.about isEmpty()){
+            channelDescription.setText(channelFull.about);
+        }else{
+            channelDescription.setText("No bio available");
+        }
         channelSubscriberCount.setText("Subscribers: "+ currentChannel.participants_count);
 
         if (currentChannel.photo != null && currentChannel.photo.photo_small != null){
             String photoUrl = currentChannel.photo.photo_small.volume_id + "_" + currentChannel.photo.photo_small.local_id;
-            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,null);
+            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,
+            Theme.getThemeDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background));
         } else{
 //            channelAvatar.setImageResource(R.drawable.channel_avatar_placeholder);
-            channelAvatar.setImageResource(R.drawable.photo_rectangle_fill);
+            // channelAvatar.setImageResource(R.drawable.photo_rectangle_fill);
+            channelAvatar.setImageDrawable(Theme.getThemeDrawable(this,R.drawable.photo_rectangle_fill, Theme.key_avatar_background));
         }
 
 
