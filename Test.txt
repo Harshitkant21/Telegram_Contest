@@ -1,3 +1,5 @@
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
 warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
 D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:50: error: cannot find symbol
 import org.telegram.ui.MessagesController;
@@ -19,21 +21,11 @@ D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.j
                                      ^
   symbol:   method setImage(ImageView,String,<null>,<null>)
   location: class ImageLoader
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:170: error: cannot find symbol
-        TextView title = new TextView(conetext);
-                                      ^
-  symbol:   variable conetext
-  location: class GiftsTabView
 D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:174: error: cannot find symbol
-        title.setTypeFace(null, android.graphics.TypeFace.BOLD);
-                                                ^
-  symbol:   class TypeFace
-  location: package android.graphics
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:183: error: cannot find symbol
-        recycler.setLayoutManager(new LinearLayoutManager(conetext));
-                                                          ^
-  symbol:   variable conetext
-  location: class GiftsTabView
+        title.setTypeFace(null, android.graphics.Typeface.BOLD);
+             ^
+  symbol:   method setTypeFace(<null>,int)
+  location: variable title of type TextView
 D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:184: error: incompatible types: List<GiftItem> cannot be converted to List<String>
         recycler.setAdapter(new GiftsAdapter(giftList));
                                              ^
@@ -71,31 +63,21 @@ D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java
   symbol:   variable giftTbContainer
   location: class id
 D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:130: error: cannot find symbol
-        if (currentUser.about != null && !currentUser.about.isEmpty()){
-                       ^
-  symbol:   variable about
-  location: variable currentUser of type User
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:130: error: cannot find symbol
-        if (currentUser.about != null && !currentUser.about.isEmpty()){
-                                                     ^
-  symbol:   variable about
-  location: variable currentUser of type User
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:131: error: cannot find symbol
-            profileBio.setText(currentUser.about);
-                                          ^
-  symbol:   variable about
-  location: variable currentUser of type User
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:152: error: cannot find symbol
-            ImageLoader.getInstance().setImage(
-                                     ^
-  symbol:   method setImage(ImageView,String,<null>,<null>)
-  location: class ImageLoader
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:159: error: cannot find symbol
-            profileAvatar.setImageResource(R.drawable.avatar_placeholder);
-                                                     ^
-  symbol:   variable avatar_placeholder
-  location: class drawable
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:178: error: cannot find symbol
+        TLRPC.UserFull userFull = MessagesController.getInstance(UserConfig.selectedAccount).getUserFull(currentUser.id, false);
+                                  ^
+  symbol:   variable MessagesController
+  location: class UserProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:166: error: cannot find symbol
+                Theme.getThemeDrawable(this,R.drawable.avatar_placeholder, Theme.key_avatar_background)
+                                                                                ^
+  symbol:   variable key_avatar_background
+  location: class Theme
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:171: error: cannot find symbol
+                Theme.getThemeDrawable(this,R.drawable.avatar_placeholder,Theme.key_avatar_background)
+                                                                               ^
+  symbol:   variable key_avatar_background
+  location: class Theme
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:191: error: cannot find symbol
             Intent intent = new Intent(this,GiftSendActivity.class);
                                             ^
   symbol:   class GiftSendActivity
@@ -105,5 +87,5 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-21 errors
+17 errors
 3 warnings
