@@ -46,8 +46,8 @@ import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.TLRPC;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.ui.ActionBar.Theme;
-import org.telegram.ui.components.GiftsTabView; // yet to create this file
-import org.telegram.ui.MessagesController;
+import org.telegram.ui.components.GiftsTabView;
+import org.telegram.messenger.MessagesController;
 
 public class UserProfileActivity extends Activity {
 
@@ -163,12 +163,12 @@ public class UserProfileActivity extends Activity {
             //     null,
             //     null
             ImageLoader.getInstance().setImage(profileAvatar,"https://cdn.telegram.org/file"+ photoUrl,null,
-                Theme.getThemeDrawable(this,R.drawable.avatar_placeholder, Theme.key_avatar_background)
+                Theme.getThemedDrawable(this,R.drawable.avatar_placeholder, Theme.key_avatar_background)
             );
         }else {
             // profileAvatar.setImageResource(R.drawable.avatar_placeholder);
             profileAvatar.setImageDrawable(
-                Theme.getThemeDrawable(this,R.drawable.avatar_placeholder,Theme.key_avatar_background)
+                Theme.getThemedDrawable(this,R.drawable.avatar_placeholder,Theme.key_avatar_background)
             );
         }
 
