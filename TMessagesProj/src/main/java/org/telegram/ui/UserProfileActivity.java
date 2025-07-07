@@ -48,6 +48,7 @@ import org.telegram.messenger.NotificationCenter;
 import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.components.GiftsTabView;
 import org.telegram.messenger.MessagesController;
+import org.telegram.ui.GiftSendActivity;
 
 public class UserProfileActivity extends Activity {
 
@@ -220,6 +221,7 @@ public class UserProfileActivity extends Activity {
         recreate();
     }
 }
+
 
 // UI binding 
 // image loading 
