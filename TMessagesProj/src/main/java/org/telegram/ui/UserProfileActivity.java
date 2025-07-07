@@ -81,7 +81,7 @@ public class UserProfileActivity extends Activity {
         Button toggleThemeButton = findViewById(R.id.toggleThemeButton);
         toggleThemeButton.setOnClickListener(v -> toggleTheme());
 
-        FrameLayout giftTabContainer = findViewById(R.id.giftTbContainer);
+        FrameLayout giftTabContainer = findViewById(R.id.giftsContainer);
         GiftsTabView giftsTabView = new GiftsTabView(this);
         giftTabContainer.addView(giftsTabView);
     }
@@ -164,12 +164,12 @@ public class UserProfileActivity extends Activity {
             //     null,
             //     null
             ImageLoader.getInstance().setImage(profileAvatar,"https://cdn.telegram.org/file"+ photoUrl,null,
-                Theme.getThemedDrawable(this,R.drawable.avatar_placeholder, Theme.key_avatar_background)
+                Theme.getThemedDrawable(this,R.drawable.avatar_placeholder, Theme.key_avatar_background2Blue)
             );
         }else {
             // profileAvatar.setImageResource(R.drawable.avatar_placeholder);
             profileAvatar.setImageDrawable(
-                Theme.getThemedDrawable(this,R.drawable.avatar_placeholder,Theme.key_avatar_background)
+                Theme.getThemedDrawable(this,R.drawable.avatar_placeholder,Theme.key_avatar_background2Blue)
             );
         }
 
