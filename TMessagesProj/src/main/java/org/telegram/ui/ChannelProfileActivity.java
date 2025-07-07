@@ -14,6 +14,7 @@ import org.telegram.messenger.R;
 import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.TLRPC;
 import org.telegram.ui.ActionBar.Theme;
+import org.telegram.messenger.MessagesController;
 
 public class ChannelProfileActivity extends Activity{
 
@@ -88,11 +89,20 @@ public class ChannelProfileActivity extends Activity{
 
         if (currentChannel.photo != null && currentChannel.photo.photo_small != null){
             String photoUrl = currentChannel.photo.photo_small.volume_id + "_" + currentChannel.photo.photo_small.local_id;
+<<<<<<< HEAD
             ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file"+photoUrl);
         } else{
 //            channelAvatar.setImageResource(R.drawable.channel_avatar_placeholder);
             // channelAvatar.setImageResource(R.drawable.photo_rectangle_fill);
             channelAvatar.setImageDrawable(getResources().getDrawable(R.drawable.photo_rectangle_fill));
+=======
+            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,
+            Theme.getThemedDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background2Blue));
+        } else{
+//            channelAvatar.setImageResource(R.drawable.channel_avatar_placeholder);
+            // channelAvatar.setImageResource(R.drawable.photo_rectangle_fill);
+            channelAvatar.setImageDrawable(Theme.getThemedDrawable(this,R.drawable.photo_rectangle_fill, Theme.key_avatar_background2Blue));
+>>>>>>> 75d2518052b7dab1c09aa17da6cbaa8ef0e91266
         }
 
 
