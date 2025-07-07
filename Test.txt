@@ -6,36 +6,21 @@ import org.telegram.ui.MessagesController;
                       ^
   symbol:   class MessagesController
   location: package org.telegram.ui
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:64: error: cannot find symbol
-        currentChannel.about = "Official page";
-                      ^
-  symbol:   variable about
-  location: variable currentChannel of type TL_channel
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:79: error: cannot find symbol
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:80: error: cannot find symbol
         TLRPC.ChatFull channelFull= MessagesController.getInstance(UserConfig.selectedAccount).getChatFull(currentChannel.id, false);
                                     ^
   symbol:   variable MessagesController
   location: class ChannelProfileActivity
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:90: error: cannot find symbol
-            Theme.getThemeDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background));
-                                                                        ^
-  symbol:   variable Theme
-  location: class ChannelProfileActivity
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:90: error: cannot find symbol
-            Theme.getThemeDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background));
-            ^
-  symbol:   variable Theme
-  location: class ChannelProfileActivity
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:94: error: cannot find symbol
-            channelAvatar.setImageDrawable(Theme.getThemeDrawable(this,R.drawable.photo_rectangle_fill, Theme.key_avatar_background));
-                                                                                                        ^
-  symbol:   variable Theme
-  location: class ChannelProfileActivity
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:94: error: cannot find symbol
-            channelAvatar.setImageDrawable(Theme.getThemeDrawable(this,R.drawable.photo_rectangle_fill, Theme.key_avatar_background));
-                                           ^
-  symbol:   variable Theme
-  location: class ChannelProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:91: error: cannot find symbol
+            Theme.getThemedDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background));
+                                                                              ^
+  symbol:   variable key_avatar_background
+  location: class Theme
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:95: error: cannot find symbol
+            channelAvatar.setImageDrawable(Theme.getThemedDrawable(this,R.drawable.photo_rectangle_fill, Theme.key_avatar_background));
+                                                                                                              ^
+  symbol:   variable key_avatar_background
+  location: class Theme
 D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:184: error: incompatible types: List<GiftItem> cannot be converted to List<String>
         recycler.setAdapter(new GiftsAdapter(giftList));
                                              ^
@@ -62,11 +47,6 @@ D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.jav
                                              ^
   symbol:   variable about
   location: variable currentGroup of type Chat
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:67: error: cannot find symbol
-        ImageLoader.getInstance().setImage(groupAvatar, avatarUrl, null, null);
-                                                        ^
-  symbol:   variable avatarUrl
-  location: class GroupProfileActivity
 D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:83: error: cannot find symbol
         FrameLayout giftTabContainer = findViewById(R.id.giftTbContainer);
                                                         ^
@@ -97,5 +77,4 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-19 errors
-3 warnings
+15 errors
