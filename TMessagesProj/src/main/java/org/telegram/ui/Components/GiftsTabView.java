@@ -197,12 +197,13 @@ public class GiftsTabView extends ScrollView {
         List<GiftItem> items= new ArrayList<>();
         items.add(new GiftItem("Animated Emoji Set","Space Reactions", R.drawable.ic_emoji_gift));
         items.add(new GiftItem("Theme Pack","Dark Mode Galaxy", R.drawable.ic_theme_gift));
+        return items; 
     }
 
     private static class GiftsAdapter extends RecyclerView.Adapter<GiftsAdapter.GiftViewHolder> {
-        private final List<String> giftList;
+        private final List<GiftItem> giftList;
 
-        GiftsAdapter(List<String> giftList) {
+        GiftsAdapter(List<GiftItem> giftList) {
             this.giftList = giftList;
         }
 
@@ -217,7 +218,7 @@ public class GiftsTabView extends ScrollView {
             GiftItem gift= giftList.get(position);
             holder.title.setText(gift.title);
             holder.subtitle.setText(gift.subtitle);
-            holder.icon.setImageResource(R.iconResId); // maybe an error in this line
+            holder.icon.setImageResource(gift.iconResId); // maybe an error in this line if the error still comes comment out this line
         }
 
 

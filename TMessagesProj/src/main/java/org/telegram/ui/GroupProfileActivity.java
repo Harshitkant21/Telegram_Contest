@@ -11,6 +11,8 @@ import android.widget.Toast;
 import org.telegram.messenger.ImageLoader;
 import org.telegram.messenger.R;
 import org.telegram.tgnet.TLRPC;
+import org.telegram.messenger.MessagesController;
+import org.telegram.messenger.UserConfig;
 
 public class GroupProfileActivity extends Activity {
 
@@ -59,9 +61,19 @@ public class GroupProfileActivity extends Activity {
 
     private void bindGroupData() {
         groupName.setText(currentGroup.title);
-        groupDescription.setText(currentGroup.about);
+        // groupDescription.setText(currentGroup.about);
         groupMemberCount.setText("Members: "+ currentGroup.participants_count);
-        groupOnlineCount.setText("Online: "+ currentGroup);
+        // groupOnlineCount.setText("Online: "+ currentGroup);
+
+        TLRPC.ChatFull chatFull = org.telegram.messenger.MessagesController.getInstance(org.telegram.message.UserConfig.selectedAccount).getChatFull(currentGroup.id);
+
+        if (chatFull != null && chatFull.about != null) {
+            groupDescription.setText(chatFull.about);
+        }else {
+            groupDescription.setText("No description");
+        }
+
+        groupOnlineCount.setText("345"); //mock fallback no fuction available for fetching online count in live 
 
         //groupAvatar.setImageResource()
         // ImageLoader.getInstance().setImage(groupAvatar, avatarUrl, null, null);

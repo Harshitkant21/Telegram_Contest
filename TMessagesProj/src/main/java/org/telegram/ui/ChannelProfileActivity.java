@@ -1,5 +1,5 @@
-package org.telegram.ui;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.telegram.messenger.ImageLoader;
+import org.telegram.messenger.MessagesController;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.messenger.R;
 import org.telegram.messenger.UserConfig;
@@ -77,7 +78,7 @@ public class ChannelProfileActivity extends Activity{
     private void bindChannelData(){
         channelName.setText(currentChannel.title);
         // channelDescription.setText(currentChannel.about);
-        TLRPC.ChatFull channelFull= MessagesController.getInstance(UserConfig.selectedAccount).getChatFull(currentChannel.id, false);
+        TLRPC.ChatFull channelFull= MessagesController.getInstance(UserConfig.selectedAccount).getChatFull(currentChannel.id);
         if (channelFull != null && channelFull.about != null && !channelFull.about.isEmpty()){
             channelDescription.setText(channelFull.about);
         }else{
@@ -87,12 +88,11 @@ public class ChannelProfileActivity extends Activity{
 
         if (currentChannel.photo != null && currentChannel.photo.photo_small != null){
             String photoUrl = currentChannel.photo.photo_small.volume_id + "_" + currentChannel.photo.photo_small.local_id;
-            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,
-            Theme.getThemedDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background));
+            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file"+photoUrl);
         } else{
 //            channelAvatar.setImageResource(R.drawable.channel_avatar_placeholder);
             // channelAvatar.setImageResource(R.drawable.photo_rectangle_fill);
-            channelAvatar.setImageDrawable(Theme.getThemedDrawable(this,R.drawable.photo_rectangle_fill, Theme.key_avatar_background));
+            channelAvatar.setImageDrawable(getResources().getDrawable(R.drawable.photo_rectangle_fill));
         }
 
 

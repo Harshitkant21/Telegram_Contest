@@ -128,7 +128,7 @@ public class UserProfileActivity extends Activity {
                 (currentUser.last_name != null ? " "+ currentUser.last_name: "");
         profileName.setText(fullname.trim().isEmpty() ? "Telegram User": fullname.trim());
 
-        TLRPC.UserFull userFull = MessagesController.getInstance(UserConfig.selectedAccount).getUserFull(currentUser.id, false);
+        TLRPC.UserFull userFull = MessagesController.getInstance(UserConfig.selectedAccount).getUserFull(currentUser.id);
 
         if (userFull != null && userFull.about != null && !userFull.about.isEmpty()){
             profileBio.setText(userFull.about);
