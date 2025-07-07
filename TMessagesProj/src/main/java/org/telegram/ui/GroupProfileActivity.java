@@ -64,7 +64,7 @@ public class GroupProfileActivity extends Activity {
         groupOnlineCount.setText("Online: "+ currentGroup);
 
         //groupAvatar.setImageResource()
-        ImageLoader.getInstance().setImage(groupAvatar, avatarUrl, null, null);
+        // ImageLoader.getInstance().setImage(groupAvatar, avatarUrl, null, null);
     }
 
     private void setupListeners() {
