@@ -58,7 +58,7 @@ public class ChannelProfileActivity extends Activity{
         inviteButton = findViewById(R.id.inviteButton);
 
         // avatarImageReceiver = new ImageReceiver(this);
-        avatarImageReceiver.setImage(channelAvatar);
+        //avatarImageReceiver.setImage(channelAvatar);
     }
 
     // private void loadMockChannel() {
@@ -95,7 +95,6 @@ public class ChannelProfileActivity extends Activity{
         }
         channelSubscriberCount.setText("Subscribers: "+ currentChannel.participants_count);
 
-<<<<<<< HEAD
 //         if (currentChannel.photo != null && currentChannel.photo.photo_small != null){
 //             String photoUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" //mock image
 //             //ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file"+photoUrl);
@@ -109,21 +108,6 @@ public class ChannelProfileActivity extends Activity{
 //             // Theme.getThemedDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background2Blue));
 //             channelAvatar.setImageDrawable(Theme.getThemedDrawable(this, R.drawable.photo_rectangle_fill, Theme.key_avatar_background2Blue));
 //         }
-=======
-        if (currentChannel.photo != null && currentChannel.photo.photo_small != null){
-            String photoUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"; //mock image
-            //ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file"+photoUrl);
-            Drawable placeholder = Theme.getThemedDrawable(this, R.drawable.photo_rectangle_fill, Theme.key_avatar_background2Blue);
-            avatarImageReceiver.setImage(photoUrl, null, placeholder);
-        } else{
-//            channelAvatar.setImageResource(R.drawable.channel_avatar_placeholder);
-            // // channelAvatar.setImageResource(R.drawable.photo_rectangle_fill);
-            // channelAvatar.setImageDrawable(getResources().getDrawable(R.drawable.photo_rectangle_fill));
-            // ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,
-            // Theme.getThemedDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background2Blue));
-            channelAvatar.setImageDrawable(Theme.getThemedDrawable(this, R.drawable.photo_rectangle_fill, Theme.key_avatar_background2Blue));
-        }
->>>>>>> cb1fcec0583a214d96ccf162e9e8b339aace32c6
 //        else{
 ////            channelAvatar.setImageResource(R.drawable.channel_avatar_placeholder);
 //            // channelAvatar.setImageResource(R.drawable.photo_rectangle_fill);
