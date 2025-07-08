@@ -1,16 +1,47 @@
 warning: [options] source value 8 is obsolete and will be removed in a future release
 warning: [options] target value 8 is obsolete and will be removed in a future release
 warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:94: error: cannot find symbol
-            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file"+photoUrl);
-                                     ^
-  symbol:   method setImage(ImageView,String)
-  location: class ImageLoader
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:99: error: cannot find symbol
-            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,
-                                                                                               ^
-  symbol:   variable photoUrl
-  location: class ChannelProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:60: error: incompatible types: ChannelProfileActivity cannot be converted to View
+        avatarImageReceiver = new ImageReceiver(this);
+                                                ^
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:61: error: no suitable method found for setImage(ImageView)
+        avatarImageReceiver.setImage(channelAvatar);
+                           ^
+    method ImageReceiver.setImage(ImageLocation,String,Drawable,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,Drawable,long,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(String,String,Drawable,String,long) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,ImageLocation,String,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,ImageLocation,String,long,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,ImageLocation,String,Drawable,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,ImageLocation,String,Drawable,long,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,ImageLocation,String,ImageLocation,String,Drawable,long,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:102: error: no suitable method found for setImage(String,<null>,Drawable)
+            avatarImageReceiver.setImage(photoUrl, null, placeholder);
+                               ^
+    method ImageReceiver.setImage(ImageLocation,String,Drawable,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,Drawable,long,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(String,String,Drawable,String,long) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,ImageLocation,String,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,ImageLocation,String,long,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,ImageLocation,String,Drawable,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,ImageLocation,String,Drawable,long,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method ImageReceiver.setImage(ImageLocation,String,ImageLocation,String,ImageLocation,String,Drawable,long,String,Object,int) is not applicable
+      (actual and formal argument lists differ in length)
 D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:212: error: cannot find symbol
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gift_item, parent, false);
                                                                                  ^
@@ -30,4 +61,6 @@ Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-5 errors
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+6 errors
+3 warnings
