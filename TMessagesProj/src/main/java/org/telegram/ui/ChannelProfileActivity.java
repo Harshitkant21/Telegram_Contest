@@ -2,6 +2,7 @@ package org.telegram.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.telegram.messenger.ImageLoader;
+import org.telegram.messenger.ImageReceiver;
 import org.telegram.messenger.MessagesController;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.messenger.R;
@@ -94,7 +96,7 @@ public class ChannelProfileActivity extends Activity{
         channelSubscriberCount.setText("Subscribers: "+ currentChannel.participants_count);
 
         if (currentChannel.photo != null && currentChannel.photo.photo_small != null){
-            String photoUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" //mock image
+            String photoUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"; //mock image
             //ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file"+photoUrl);
             Drawable placeholder = Theme.getThemedDrawable(this, R.drawable.photo_rectangle_fill, Theme.key_avatar_background2Blue);
             avatarImageReceiver.setImage(photoUrl, null, placeholder);
