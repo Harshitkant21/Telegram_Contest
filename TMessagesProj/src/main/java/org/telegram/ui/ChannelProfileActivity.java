@@ -27,6 +27,7 @@ public class ChannelProfileActivity extends Activity{
     private Button joinButton;
     private Button muteButton;
     private Button inviteButton;
+    private ImageReceiver avatarImageReceiver;
 
     private TLRPC.TL_channel currentChannel;
     private boolean isMuted= false;
@@ -53,6 +54,9 @@ public class ChannelProfileActivity extends Activity{
         joinButton = findViewById(R.id.joinButton);
         muteButton = findViewById(R.id.muteButton);
         inviteButton = findViewById(R.id.inviteButton);
+
+        avatarImageReceiver = new ImageReceiver(this);
+        avatarImageReceiver.setImage(channelAvatar);
     }
 
     // private void loadMockChannel() {
@@ -90,14 +94,17 @@ public class ChannelProfileActivity extends Activity{
         channelSubscriberCount.setText("Subscribers: "+ currentChannel.participants_count);
 
         if (currentChannel.photo != null && currentChannel.photo.photo_small != null){
-            String photoUrl = currentChannel.photo.photo_small.volume_id + "_" + currentChannel.photo.photo_small.local_id;
-            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file"+photoUrl);
+            String photoUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" //mock image
+            //ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file"+photoUrl);
+            Drawable placeholder = Theme.getThemedDrawable(this, R.drawable.photo_rectangle_fill, Theme.key_avatar_background2Blue);
+            avatarImageReceiver.setImage(photoUrl, null, placeholder);
         } else{
 //            channelAvatar.setImageResource(R.drawable.channel_avatar_placeholder);
-            // channelAvatar.setImageResource(R.drawable.photo_rectangle_fill);
-            channelAvatar.setImageDrawable(getResources().getDrawable(R.drawable.photo_rectangle_fill));
-            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,
-            Theme.getThemedDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background2Blue));
+            // // channelAvatar.setImageResource(R.drawable.photo_rectangle_fill);
+            // channelAvatar.setImageDrawable(getResources().getDrawable(R.drawable.photo_rectangle_fill));
+            // ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,
+            // Theme.getThemedDrawable(this,R.drawable.photo_rectangle_fill,Theme.key_avatar_background2Blue));
+            channelAvatar.setImageDrawable(Theme.getThemedDrawable(this, R.drawable.photo_rectangle_fill, Theme.key_avatar_background2Blue));
         }
 //        else{
 ////            channelAvatar.setImageResource(R.drawable.channel_avatar_placeholder);
