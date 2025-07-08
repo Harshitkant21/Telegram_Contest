@@ -65,7 +65,7 @@ public class GroupProfileActivity extends Activity {
         groupMemberCount.setText("Members: "+ currentGroup.participants_count);
         // groupOnlineCount.setText("Online: "+ currentGroup);
 
-        TLRPC.ChatFull chatFull = org.telegram.messenger.MessagesController.getInstance(org.telegram.message.UserConfig.selectedAccount).getChatFull(currentGroup.id);
+        TLRPC.ChatFull chatFull = org.telegram.messenger.MessagesController.getInstance(org.telegram.messenger.UserConfig.selectedAccount).getChatFull(currentGroup.id);
 
         if (chatFull != null && chatFull.about != null) {
             groupDescription.setText(chatFull.about);

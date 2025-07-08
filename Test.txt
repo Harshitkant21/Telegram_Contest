@@ -1,49 +1,26 @@
 warning: [options] source value 8 is obsolete and will be removed in a future release
 warning: [options] target value 8 is obsolete and will be removed in a future release
 warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:81: error: method getChatFull in class MessagesController cannot be applied to given types;
-        TLRPC.ChatFull channelFull= MessagesController.getInstance(UserConfig.selectedAccount).getChatFull(currentChannel.id, false);
-                                                                                              ^
-  required: long
-  found:    long,boolean
-  reason: actual and formal argument lists differ in length
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:91: error: cannot find symbol
-            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:94: error: cannot find symbol
+            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file"+photoUrl);
                                      ^
-  symbol:   method setImage(ImageView,String,<null>,Drawable)
+  symbol:   method setImage(ImageView,String)
   location: class ImageLoader
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:185: error: incompatible types: List<GiftItem> cannot be converted to List<String>
-        recycler.setAdapter(new GiftsAdapter(giftList));
-                                             ^
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:211: error: cannot find symbol
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\ChannelProfileActivity.java:99: error: cannot find symbol
+            ImageLoader.getInstance().setImage(channelAvatar,"https://cdn.telegram.org/file/"+ photoUrl, null,
+                                                                                               ^
+  symbol:   variable photoUrl
+  location: class ChannelProfileActivity
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:212: error: cannot find symbol
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gift_item, parent, false);
                                                                                  ^
   symbol:   variable gift_item
   location: class layout
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:217: error: incompatible types: String cannot be converted to GiftItem
-            GiftItem gift= giftList.get(position);
-                                       ^
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:220: error: cannot find symbol
-            holder.icon.setImageResource(R.iconResId); // maybe an error in this line
-                                          ^
-  symbol:   variable iconResId
-  location: class R
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:55: error: cannot find symbol
+D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:57: error: cannot find symbol
        currentGroup.online_count = 245;
                    ^
   symbol:   variable online_count
   location: variable currentGroup of type Chat
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:62: error: cannot find symbol
-        groupDescription.setText(currentGroup.about);
-                                             ^
-  symbol:   variable about
-  location: variable currentGroup of type Chat
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:131: error: method getUserFull in class MessagesController cannot be applied to given types;
-        TLRPC.UserFull userFull = MessagesController.getInstance(UserConfig.selectedAccount).getUserFull(currentUser.id, false);
-                                                                                            ^
-  required: long
-  found:    long,boolean
-  reason: actual and formal argument lists differ in length
 D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\UserProfileActivity.java:166: error: cannot find symbol
             ImageLoader.getInstance().setImage(profileAvatar,"https://cdn.telegram.org/file"+ photoUrl,null,
                                      ^
@@ -53,6 +30,4 @@ Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-10 errors
-3 warnings
+5 errors
