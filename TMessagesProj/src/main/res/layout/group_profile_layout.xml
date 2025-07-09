@@ -2,8 +2,8 @@
     android:id="@+id/groupProfileScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillviewport="true"
-    android:background="?attr/colorBackground">
+    android:fillViewport="true"
+    android:background="?android:attr/colorBackground">
 
     <LinearLayout
         android:id="@+id/groupProfileRoot"
@@ -17,7 +17,7 @@
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_gravity="center_horizontal"
-            android:src=""
+            android:src="@drawable/avatar_placeholder"
             android:scaleType="centerCrop"/>
 
         <TextView
@@ -28,7 +28,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:textColor="?attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:layout_marginTop="12dp"/>
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="Group Description goes here."
             android:textSize="14sp"
-            android:textColor="?attr/textColorSecondary"
+            android:textColor="?android:attr/textColorSecondary"
             android:layout_marginTop="8dp"/>
 
         <TextView
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:text="Members: 0"
             android:textSize="14sp"
-            android:textColor="?attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:layout_marginTop="4dp"/>
 
         <TextView
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:text="Online: 0"
             android:textSize="14sp"
-            android:textColor="?attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:layout_marginTop="4dp"/>
 
         <LinearLayout

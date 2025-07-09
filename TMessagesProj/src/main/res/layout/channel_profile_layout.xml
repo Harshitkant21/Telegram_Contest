@@ -2,7 +2,7 @@
     android:id="@+id/channelProfileScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorbackground"
+    android:background="@android:attr/colorBackground"
     android:fillViewport="true">
 
     <LinearLayout
@@ -27,7 +27,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:textColor="?attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:layout_marginTop="12dp" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" 
             android:text="channel description"
-            android:textColor="?attr/textColorSecondary"
+            android:textColor="?android:attr/textColorSecondary"
             android:layout_marginTop="8dp" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text="subscribers:0"
             android:textSize="14sp"
-            android:textColor="?attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:layout_marginTop="8dp" />
 
         <LinearLayout

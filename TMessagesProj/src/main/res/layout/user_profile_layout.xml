@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:text="@username"
             android:textSize="14sp"
-            android:textColor="?attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:layout_marginTop="8dp"/>
 
         <TextView
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="+11837988379"
             android:textSize="14sp"
-            android:textColor="?attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:layout_marginTop="4dp"/>
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:text="Online"
             android:textSize="14sp"
-            android:textColor="?attr/textColorPrimary"
+            android:textColor="?android:attr/textColorPrimary"
             android:layout_marginTop="4dp"/>
 
         <LinearLayout
