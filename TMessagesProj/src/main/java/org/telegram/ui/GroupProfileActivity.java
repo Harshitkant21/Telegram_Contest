@@ -54,7 +54,7 @@ public class GroupProfileActivity extends Activity {
        currentGroup = new TLRPC.TL_chat();
        currentGroup.title = "ABCD";
        currentGroup.participants_count = 1540;
-       currentGroup.online_count = 245;
+//       currentGroup.online_count = 245;
 
        // this class is for demo purposes only if any error occurs comment out the Loadmockgroup
    }

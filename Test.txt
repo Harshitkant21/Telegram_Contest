@@ -1,19 +1,27 @@
-warning: [options] source value 8 is obsolete and will be removed in a future release
-warning: [options] target value 8 is obsolete and will be removed in a future release
-warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\Components\GiftsTabView.java:212: error: cannot find symbol
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gift_item, parent, false);
-                                                                                 ^
-  symbol:   variable gift_item
-  location: class layout
-D:\Telegram\TMessagesProj\src\main\java\org\telegram\ui\GroupProfileActivity.java:57: error: cannot find symbol
-       currentGroup.onlineCount = 245;
-                   ^
-  symbol:   variable onlineCount
-  location: variable currentGroup of type Chat
-Note: Some input files use or override a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-Note: Some input files use unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-2 errors
-3 warnings
+channel_profile_layout.xml
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\channel_profile_layout.xml:6: AAPT: error: resource attr/colorbackground (aka org.telegram.messenger.beta:attr/colorbackground) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\channel_profile_layout.xml:31: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\channel_profile_layout.xml:39: AAPT: error: resource attr/textColorSecondary (aka org.telegram.messenger.beta:attr/textColorSecondary) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\channel_profile_layout.xml:48: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
+
+gift_tab_view.xml
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\gifts_tab_view.xml:6: AAPT: error: '/attr/colorBackground' is incompatible with attribute background (attr) reference|color.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\gifts_tab_view.xml:6: AAPT: error: attribute android:fillviewport not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\gifts_tab_view.xml:25: AAPT: error: '#' is incompatible with attribute src (attr) reference|color.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\gifts_tab_view.xml:33: AAPT: error: resource attr/selectableBackground (aka org.telegram.messenger.beta:attr/selectableBackground) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\gifts_tab_view.xml:42: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\gifts_tab_view.xml:50: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
+
+group_profile_layout.xml
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:6: AAPT: error: resource attr/colorBackground (aka org.telegram.messenger.beta:attr/colorBackground) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:6: AAPT: error: attribute android:fillviewport not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:21: AAPT: error: '' is incompatible with attribute src (attr) reference|color.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:32: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:41: AAPT: error: resource attr/textColorSecondary (aka org.telegram.messenger.beta:attr/textColorSecondary) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:50: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\group_profile_layout.xml:59: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
+
+user_profile_layout.xml
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\user_profile_layout.xml:47: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\user_profile_layout.xml:56: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
+ERROR: D:\Telegram\TMessagesProj\build\intermediates\packaged_res\debug\packageDebugResources\layout\user_profile_layout.xml:65: AAPT: error: resource attr/textColorPrimary (aka org.telegram.messenger.beta:attr/textColorPrimary) not found.
