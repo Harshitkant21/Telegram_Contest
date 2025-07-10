@@ -74,7 +74,7 @@
 //         }
 //     }
 // }
-package org.telegram.ui.components;
+package org.telegram.ui.Components;
 
 import android.content.Context;
 import android.util.AttributeSet;

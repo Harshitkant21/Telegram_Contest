@@ -46,7 +46,7 @@ import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.TLRPC;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.ui.ActionBar.Theme;
-import org.telegram.ui.components.GiftsTabView;
+import org.telegram.ui.Components.GiftsTabView;
 import org.telegram.messenger.MessagesController;
 import org.telegram.ui.GiftSendActivity;
 
